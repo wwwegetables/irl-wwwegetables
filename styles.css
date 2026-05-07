@@ -42,7 +42,9 @@
 body{
     margin: 20px 10px;
     background-color: var(--gggreen);
-    color: var(--wwwhite)
+    color: var(--wwwhite);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 h2, h1 {
@@ -58,8 +60,8 @@ h2{
 }
 
 p, li{
-    font-family: var(--mechanik), sans-serif;
-    font-size: clamp(1rem, 1.2rem, 1.4rem);
+    font-family: var(--mechanik);
+    font-size: clamp(1.2rem, 1.4rem, 1.6rem);
 }
 
 /*body{
