@@ -45,6 +45,7 @@ body{
     color: var(--wwwhite);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 h2, h1 {
