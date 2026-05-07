@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+  
+}
+
+:root{
+    --wwwhite: rgb(225, 220, 208);
+    --gggreen: #1f7521;
+    --mono: maple-reg, 'Courier New', Courier, monospace;
+    --mechanik: mechanik-reg, san-serif;
+}
+
+@font-face {
+  font-family: "maple-reg";
+  src: url("assets/maple-reg.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "mechanik-reg";
+  src: url("assets/mechanik-reg.otf") format("OpenType");
+  font-style: normal;
+  font-weight: 100;
+}
+
+body{
+    background-color: rgb(47, 35, 35);
+}
+
+.flowerpot{
+    margin: 200px auto 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.ascii-art{
+    font-family: var(--mono);
+    white-space: pre;
+    color: rgb(241, 128, 243);
+    position: relative;
+    
+}
+#msg{
+    text-align: center;
+    align-self: center;
+    display: block; 
+    width: 16ch;
+    white-space: normal;
+    align-items: baseline;
+    line-height: 2rem;
+    margin: -10px 0;
+}
+
+
+
