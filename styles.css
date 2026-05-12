@@ -4,8 +4,9 @@
 }
 
 :root {
-    --wwwhite: rgb(225, 220, 208);
-    --gggreen: #1f7521;
+    --not-wwwhite: rgb(225, 220, 208);
+    --gggreen: #1c330c;
+    --yyyellow: #ffffb8;
     --sans: 'FluxischElse-Regular', 'Helvetica', Arial, sans-serif;
     --sans-bold: 'FluxischElse-Bold', 'Helvetica', Arial, sans-serif;
     --mono: mechanik-reg, 'Courier New', Courier, monospace;
@@ -38,14 +39,17 @@
 }
 
 
-
-body{
+body {
     margin: 20px 10px;
     background-color: var(--gggreen);
     color: var(--wwwhite);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+   	font-family: var(--mono);
+	font-size: 1.25rem;
+	line-height: 1.3;
+	color: #fff7e8;
 }
 
 h1 {
@@ -54,8 +58,8 @@ h1 {
 	text-align: center;
 	border: 5px dotted #ffffb8;
 	border-radius: 5rem;
-	color: #fab73c;
-	background-color: #5dbba1bf;
+	color: #ffa500;
+	background-color: #0b6049;
 	line-height: 1;
 	padding: 1.25rem;
 }
@@ -65,32 +69,29 @@ h2 {
     font-size: clamp(1.8rem, 2rem, 2.2rem);
     font-family: var(--sans);
 	text-align: center;
-	color: #ffffb8e5;
+	color: var(--yyyellow);
 }
 
 
-#project
- {
+section {
 	margin: 1.25rem 0.5rem;
 }
 
-    p, li {
-	font-family: var(--mono);
-	font-size: 1.25rem;
-	line-height: 1.3;
-	color: #fff7e8;
+div.calendar {
+ display: flex;
+ flex-direction: row;
 }
 
 
-   p, li {
-	font-family: var(--mono);
-	font-size: 1.25rem;
-	line-height: 1.3;
-	color: #fff7e8;
+
+div.termin {
+	border: 5px dotted #ffffb8;
+	border-radius: 6rem;
+	text-align: center;
+	padding: 2rem;
 }
 
-
-.wwws{
+.wwws {
     max-width: 500px;
     position: fixed;
     bottom: 0;
@@ -104,18 +105,6 @@ h2 {
         margin-left: auto;
         margin-right: auto;
     }
-
-    h1 {
-        font-size: clamp(3rem, 3.5rem, 4rem); 
-    }
-
-    h2 {
-        font-size: clamp(2.2rem, 2.5rem, 2.8rem);
-    }
-
-    p, li {
-        font-size: clamp(1.4rem, 1.6rem, 1.8rem); 
-    }
 }
 
 
@@ -124,19 +113,6 @@ h2 {
         margin: 60px auto; 
         max-width: 1000px; 
     }
-
-    h1 {
-        font-size: clamp(3.5rem, 4rem, 4.5rem); 
-    }
-
-    h2 {
-        font-size: clamp(2.5rem, 2.8rem, 3rem);
-    }
-
-    p, li {
-        font-size: clamp(1.6rem, 1.8rem, 2rem);
-    }
-
 }
 
 
