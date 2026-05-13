@@ -76,6 +76,10 @@ header, section {
 	/* border: 2px lime solid; */
 }
 
+section {
+    padding: 1rem 1.5rem;
+}
+
 
 
 div.calendar {
@@ -90,7 +94,7 @@ p, li {
 }
 
 p {
-	padding: 2rem 0;
+	padding: 1rem 0 2rem 0;
 }
 
 
@@ -204,6 +208,11 @@ li::before {
 }
 
 @media (min-width: 768px) {
+
+    header {
+        margin-bottom: 4rem;
+    }
+
     .grid-wrapper {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -219,10 +228,12 @@ li::before {
 
     #project {
         grid-area: project;
+        padding: 2rem;
     }
 
     #place {
         grid-area: place;
+        padding: 2rem;
     }
 
     #dinners {
@@ -239,6 +250,7 @@ li::before {
 
     section {
         padding: 1rem;
+        margin: 3rem 5rem;
     }
 
     div.calendar {
