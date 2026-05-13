@@ -5,6 +5,8 @@
     --not-wwwhite: rgb(225, 220, 208);
     --gggreen: #1c330c;
     --yyyellow: #ffffb8;
+    --ooorange: #ffa500;
+    --ttteal: #0b6049;
     --flux: 'FluxischElse', 'Helvetica', Arial, sans-serif;
     --mech: 'GT-Mechanik-Semi', 'Courier New', Courier, monospace;
 }
@@ -47,8 +49,8 @@ h1 {
 	text-align: center;
     line-height: 1;
 
-	color: #ffa500;
-	background-color: #0b6049;
+	color: var(--ooorange);
+	background-color: var(--ttteal);
 
 	padding: 1.25rem;
     width: fit-content;
@@ -63,8 +65,8 @@ h1 {
 h2 {
     font-weight: 400;
     font-size: clamp(1.8rem, 2rem, 2.2rem);
-
 	color: var(--yyyellow);
+    text-align: center;
 }
 
 
@@ -76,6 +78,7 @@ header, section {
 div.calendar {
  display: flex;
  flex-direction: row;
+ justify-content: center;
 }
 
 p, li {
@@ -83,23 +86,60 @@ p, li {
 }
 
 .termin {
-    border: 5px dotted #ffffb8;
-	border-radius: 6rem;
+	border: 5px dotted var(--yyyellow);
 	text-align: center;
 	padding: 2rem;
+	margin: 2rem;
+	width: 13rem;
+	height: 12rem;
 }
 
-div.date {
+.info-termin {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	border: 2px dotted var(--yyyellow);
+	padding: 2rem;
+	margin: 2rem;
+	width: 13rem;
+	height: 12rem;
+	background-color: var(--ttteal);
+}
+
+.qualifier {
+    font-family: var(--flux);
+    font-weight: 400; 
+}
+
+.date {
     font-weight: 600;
 }	
 
-div.theme {
+.theme {
     font-style: oblique;
     font-weight: 400;
 }
 
 .expanded {
     display: none;
+}
+
+.pencil {
+	padding: .25rem;
+	font-size: 2rem;
+}
+
+.envelope {
+	padding: .25rem;
+	font-size: 2rem;
+}
+
+
+.snail {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
 }
 
 ul {
@@ -130,53 +170,45 @@ li::before {
 }
 
 .wwws {
-    max-width: 500px;
     position: fixed;
-    bottom: 0;
-    right: 0px;
+    bottom: 20px;
+    right: 20px;
+    max-width: 280px;
+    width: min(100%, 280px);
 }
 
 @media (min-width: 768px) {
     .wrapper {
-        /* Desktop: custom grid layout */
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: auto 1fr auto auto;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto auto;
         grid-template-areas:
-            "header header header"
-            "place project ."
-            "dinners . wwws"
-            "logs logs logs";
+            "project place"
+            "dinners dinners"
+            "contact contact"
+            "logs logs";
         gap: 20px;
         min-height: 100vh;
-    }
-
-    header {
-        grid-area: header;
-    }
-
-    #place {
-        grid-area: place;
     }
 
     #project {
         grid-area: project;
     }
 
+    #place {
+        grid-area: place;
+    }
+
     #dinners {
         grid-area: dinners;
     }
 
-    #logs {
-        grid-area: logs;
+    #contact {
+        grid-area: contact;
     }
 
-    .wwws {
-        grid-area: wwws;
-        position: static;
-        align-self: end;
-        justify-self: end;
-        max-width: 300px;
+    #logs {
+        grid-area: logs;
     }
 
     section {
