@@ -52,6 +52,18 @@ body {
 	color: #fff7e8;
 }
 
+.wrapper {
+    display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
 h1 {
 	font-family: var(--sans-bold);
 	font-size: clamp(2.4rem, 2.6rem, 2.8rem);
@@ -62,6 +74,8 @@ h1 {
 	background-color: #0b6049;
 	line-height: 1;
 	padding: 1.25rem;
+    width: fit-content;
+    height: fit-content;
 }
 
 
@@ -89,6 +103,30 @@ div.termin {
 	border-radius: 6rem;
 	text-align: center;
 	padding: 2rem;
+}
+
+.expanded {
+    display: none;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 8px;
+}
+
+li::before {
+    content: "⚘";
+    font-size: 1.25rem;
+    color: var(--yyyellow);
+    position: absolute;
+    left: 0;
+    margin-right: 8px;
 }
 
 .wwws {
