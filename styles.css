@@ -13,7 +13,6 @@
 
 
 body {
-    margin: 20px 10px;
     background-color: var(--gggreen);
     color: var(--wwwhite);
     font-family: var(--mech);
@@ -30,7 +29,12 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    align-items: center;
 }
+
 
 header {
     display: flex;
@@ -43,22 +47,17 @@ h1, h2 {
 }
 
 h1 {
-    font-weight: 700;
-	font-size: clamp(2.4rem, 2.6rem, 2.8rem);
-
+	font-weight: 400;
+	font-size: 3.25rem;
 	text-align: center;
-    line-height: 1;
-
+	line-height: 1;
 	color: var(--ooorange);
-	background-color: var(--ttteal);
-
-	padding: 1.25rem;
-    width: fit-content;
-    height: fit-content;
-
-    border: 5px dotted #ffffb8;
-	border-radius: 5rem;
-    
+	/* background-color: var(--ttteal); */
+	padding: 4rem 0;
+	width: fit-content;
+	height: fit-content;
+	border-bottom: 5px dotted var(--ttteal);
+	/* border-radius: 5rem; */
 }
 
 
@@ -71,39 +70,50 @@ h2 {
 
 
 header, section {
-	margin: 1.25rem 0.5rem;
-    border: 2px lime solid;
+	margin: 1.5rem 0.5rem;
+	/* border: 2px lime solid; */
 }
 
+
+
 div.calendar {
- display: flex;
- flex-direction: row;
- justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 p, li {
     font-weight: 400;
 }
 
+p {
+	padding: 2rem 0;
+}
+
+
 .termin {
 	border: 5px dotted var(--yyyellow);
 	text-align: center;
 	padding: 2rem;
-	margin: 2rem;
-	width: 13rem;
+	margin: 1rem;
+	width: 100%;
+	max-width: 13rem;
 	height: 12rem;
+	box-sizing: border-box;
 }
 
 .info-termin {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	border: 2px dotted var(--yyyellow);
+	border: 5px dotted var(--ttteal);
 	padding: 2rem;
-	margin: 2rem;
-	width: 13rem;
+	margin: 1rem;
+	width: 100%;
+	max-width: 13rem;
 	height: 12rem;
-	background-color: var(--ttteal);
+	box-sizing: border-box;
 }
 
 .qualifier {
@@ -162,11 +172,18 @@ li {
 
 li::before {
     content: "⚘";
+    font-weight: 400;
     font-size: 1.25rem;
+    font-style: normal;
     color: var(--yyyellow);
     position: absolute;
     left: 0;
     margin-right: 8px;
+}
+
+#logs {
+    background-color: var(--ttteal);
+    padding: 3rem 2rem;
 }
 
 .wwws {
@@ -213,6 +230,17 @@ li::before {
 
     section {
         padding: 1rem;
+    }
+
+    div.calendar {
+        flex-direction: row;
+    }
+    
+    .termin {
+        padding: 2rem;
+	    margin: 2rem;
+	    width: 13rem;
+	    height: 12rem;
     }
 }
 
