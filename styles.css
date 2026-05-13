@@ -1,41 +1,12 @@
-*{
-    margin: 0;
-    padding: 0;
-}
+@import "reset.css";
+@import "fonts.css";
 
 :root {
     --not-wwwhite: rgb(225, 220, 208);
     --gggreen: #1c330c;
     --yyyellow: #ffffb8;
-    --sans: 'FluxischElse-Regular', 'Helvetica', Arial, sans-serif;
-    --sans-bold: 'FluxischElse-Bold', 'Helvetica', Arial, sans-serif;
-    --mono: mechanik-reg, 'Courier New', Courier, monospace;
-}
-
-@font-face {
-  font-family: "FluxischElse-Regular";
-  src: url("assets/FluxischElse-Regular.otf") format("opentype");
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "FluxischElse-Bold";
-  src: url("assets/FluxischElse-Bold.otf") format("opentype");
-  font-style: normal;
-  font-weight: bold;
-}
-
-@font-face {
-  font-family: "FluxischElse-Light";
-  src: url("assets/FluxischElse-Light.otf") format("opentype");
-  font-style: normal;
-  font-weight: light;
-}
-
-@font-face {
-  font-family: "mechanik-reg";
-  src: url("assets/mechanik-reg.otf") format("OpenType");
-  font-style: normal;
+    --flux: 'FluxischElse', 'Helvetica', Arial, sans-serif;
+    --mech: 'GT-Mechanik-Semi', 'Courier New', Courier, monospace;
 }
 
 
@@ -43,20 +14,20 @@ body {
     margin: 20px 10px;
     background-color: var(--gggreen);
     color: var(--wwwhite);
+    font-family: var(--mech);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-   	font-family: var(--mono);
 	font-size: 1.25rem;
 	line-height: 1.3;
 	color: #fff7e8;
 }
 
 .wrapper {
-    display: grid;
-        grid-template-columns: repeat(3, 1fr);
+    /* Mobile-first: single column by default */
+    display: flex;
+    flex-direction: column;
     gap: 10px;
-    grid-auto-rows: minmax(100px, auto);
 }
 
 header {
@@ -64,31 +35,42 @@ header {
     justify-content: center;
 }
 
+h1, h2 {
+	font-family: var(--flux);
+    font-style: normal;
+}
+
 h1 {
-	font-family: var(--sans-bold);
+    font-weight: 700;
 	font-size: clamp(2.4rem, 2.6rem, 2.8rem);
+
 	text-align: center;
-	border: 5px dotted #ffffb8;
-	border-radius: 5rem;
+    line-height: 1;
+
 	color: #ffa500;
 	background-color: #0b6049;
-	line-height: 1;
+
 	padding: 1.25rem;
     width: fit-content;
     height: fit-content;
+
+    border: 5px dotted #ffffb8;
+	border-radius: 5rem;
+    
 }
 
 
 h2 {
+    font-weight: 400;
     font-size: clamp(1.8rem, 2rem, 2.2rem);
-    font-family: var(--sans);
-	text-align: center;
+
 	color: var(--yyyellow);
 }
 
 
-section {
+header, section {
 	margin: 1.25rem 0.5rem;
+    border: 2px lime solid;
 }
 
 div.calendar {
@@ -96,13 +78,24 @@ div.calendar {
  flex-direction: row;
 }
 
+p, li {
+    font-weight: 400;
+}
 
-
-div.termin {
-	border: 5px dotted #ffffb8;
+.termin {
+    border: 5px dotted #ffffb8;
 	border-radius: 6rem;
 	text-align: center;
 	padding: 2rem;
+}
+
+div.date {
+    font-weight: 600;
+}	
+
+div.theme {
+    font-style: oblique;
+    font-weight: 400;
 }
 
 .expanded {
@@ -114,7 +107,14 @@ ul {
     padding-left: 0;
 }
 
+span.log-date {
+    font-weight: 500;
+    font-style: normal;
+}
+
 li {
+    font-weight: 300;
+    font-style: oblique;
     position: relative;
     padding-left: 24px;
     margin-bottom: 8px;
@@ -137,28 +137,51 @@ li::before {
 }
 
 @media (min-width: 768px) {
-    body {
-        margin: 40px 20px; 
-        max-width: 800px; 
-        margin-left: auto;
-        margin-right: auto;
+    .wrapper {
+        /* Desktop: custom grid layout */
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto 1fr auto auto;
+        grid-template-areas:
+            "header header header"
+            "place project ."
+            "dinners . wwws"
+            "logs logs logs";
+        gap: 20px;
+        min-height: 100vh;
+    }
+
+    header {
+        grid-area: header;
+    }
+
+    #place {
+        grid-area: place;
+    }
+
+    #project {
+        grid-area: project;
+    }
+
+    #dinners {
+        grid-area: dinners;
+    }
+
+    #logs {
+        grid-area: logs;
+    }
+
+    .wwws {
+        grid-area: wwws;
+        position: static;
+        align-self: end;
+        justify-self: end;
+        max-width: 300px;
+    }
+
+    section {
+        padding: 1rem;
     }
 }
-
-
-@media (min-width: 1024px) {
-    body {
-        margin: 60px auto; 
-        max-width: 1000px; 
-    }
-}
-
-
-@media (min-width: 1200px) {
-    body {
-        max-width: 1200px; 
-    }
-}
-
 
 
