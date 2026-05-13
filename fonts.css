@@ -1,0 +1,304 @@
+/* FluxischElse Font Family */
+@font-face {
+  font-family: "FluxischElse";
+  src: url("assets/fonts/FluxischElse/FluxischElse-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FluxischElse";
+  src: url("assets/fonts/FluxischElse/FluxischElse-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FluxischElse";
+  src: url("assets/fonts/FluxischElse/FluxischElse-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* GT-Mechanik Mono Family */
+@font-face {
+  font-family: "GT-Mechanik-Mono";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Mono-Thin-Trial.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Mono";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Mono-Thin-Oblique-Trial.otf") format("opentype");
+  font-weight: 100;
+  font-style: oblique;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Mono";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Mono-Light-Trial.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Mono";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Mono-Regular-Trial.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Mono";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Mono-Regular-Oblique-Trial.otf") format("opentype");
+  font-weight: 400;
+  font-style: oblique;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Mono";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Mono-Medium-Trial.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Mono";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Mono-Medium-Oblique-Trial.otf") format("opentype");
+  font-weight: 500;
+  font-style: oblique;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Mono";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Mono-Bold-Trial.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Mono";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Mono-Heavy-Trial.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Mono";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Mono-Heavy-Oblique-Trial.otf") format("opentype");
+  font-weight: 800;
+  font-style: oblique;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Mono";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Mono-Black-Trial.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Mono";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Mono-Black-Oblique-Trial.otf") format("opentype");
+  font-weight: 900;
+  font-style: oblique;
+}
+
+/* GT-Mechanik Poly Family */
+@font-face {
+  font-family: "GT-Mechanik-Poly";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Poly-Thin-Trial.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Poly";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Poly-Thin-Oblique-Trial.otf") format("opentype");
+  font-weight: 100;
+  font-style: oblique;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Poly";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Poly-Light-Trial.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Poly";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Poly-Light-Oblique-Trial.otf") format("opentype");
+  font-weight: 300;
+  font-style: oblique;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Poly";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Poly-Regular-Trial.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Poly";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Poly-Regular-Oblique-Trial.otf") format("opentype");
+  font-weight: 400;
+  font-style: oblique;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Poly";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Poly-Medium-Trial.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Poly";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Poly-Medium-Oblique-Trial.otf") format("opentype");
+  font-weight: 500;
+  font-style: oblique;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Poly";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Poly-Bold-Trial.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Poly";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Poly-Bold-Oblique-Trial.otf") format("opentype");
+  font-weight: 700;
+  font-style: oblique;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Poly";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Poly-Heavy-Trial.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Poly";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Poly-Heavy-Oblique-Trial.otf") format("opentype");
+  font-weight: 800;
+  font-style: oblique;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Poly";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Poly-Black-Trial.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Poly";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Poly-Black-Oblique-Trial.otf") format("opentype");
+  font-weight: 900;
+  font-style: oblique;
+}
+
+/* GT-Mechanik Semi Family */
+@font-face {
+  font-family: "GT-Mechanik-Semi";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Semi-Thin-Trial.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Semi";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Semi-Thin-Oblique-Trial.otf") format("opentype");
+  font-weight: 100;
+  font-style: oblique;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Semi";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Semi-Light-Trial.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Semi";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Semi-Light-Oblique-Trial.otf") format("opentype");
+  font-weight: 300;
+  font-style: oblique;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Semi";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Semi-Regular-Trial.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Semi";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Semi-Regular-Oblique-Trial.otf") format("opentype");
+  font-weight: 400;
+  font-style: oblique;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Semi";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Semi-Medium-Trial.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Semi";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Semi-Medium-Oblique-Trial.otf") format("opentype");
+  font-weight: 500;
+  font-style: oblique;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Semi";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Semi-Bold-Trial.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Semi";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Semi-Bold-Oblique-Trial.otf") format("opentype");
+  font-weight: 700;
+  font-style: oblique;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Semi";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Semi-Heavy-Trial.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Semi";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Semi-Heavy-Oblique-Trial.otf") format("opentype");
+  font-weight: 800;
+  font-style: oblique;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Semi";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Semi-Black-Trial.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT-Mechanik-Semi";
+  src: url("assets/fonts/GT-Mechanik/GT-Mechanik-Semi-Black-Oblique-Trial.otf") format("opentype");
+  font-weight: 900;
+  font-style: oblique;
+}
