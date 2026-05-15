@@ -5,19 +5,14 @@
 
 :root {
     --not-wwwhite: rgb(225, 220, 208);
-    --gggreen: #1c330c;
+    --gggreen: hsl(95, 69%, 28%);
     --yyyellow: #ffffb8;
-    --sans: 'FluxischElse-Regular', 'Helvetica', Arial, sans-serif;
+    --sans: 'mechanik', 'Helvetica', Arial, sans-serif;
     --sans-bold: 'FluxischElse-Bold', 'Helvetica', Arial, sans-serif;
-    --mono: mechanik-reg, 'Courier New', Courier, monospace;
+    --mono: 'maple-bold', 'Courier New', Courier, monospace;
 }
 
-@font-face {
-  font-family: "FluxischElse-Regular";
-  src: url("assets/FluxischElse-Regular.otf") format("opentype");
-  font-style: normal;
-}
-
+/*
 @font-face {
   font-family: "FluxischElse-Bold";
   src: url("assets/FluxischElse-Bold.otf") format("opentype");
@@ -30,7 +25,15 @@
   src: url("assets/FluxischElse-Light.otf") format("opentype");
   font-style: normal;
   font-weight: light;
+}*/
+
+
+@font-face {
+  font-family: "maple-bold";
+  src: url("assets/maple-bold.ttf") format("TrueType");
+  font-style: normal;
 }
+
 
 @font-face {
   font-family: "mechanik-reg";
@@ -43,32 +46,29 @@ body {
     margin: 20px 10px;
     background-color: var(--gggreen);
     color: var(--wwwhite);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-   	font-family: var(--mono);
+    text-rendering: geometricPrecision;
+   	font-family: var(--sans);
 	font-size: 1.25rem;
-	line-height: 1.3;
+	line-height: 1.6rem;
 	color: #fff7e8;
 }
 
 h1 {
-	font-family: var(--sans-bold);
-	font-size: clamp(2.4rem, 2.6rem, 2.8rem);
-	text-align: center;
-	border: 5px dotted #ffffb8;
+	font-family: var(--mono);
+	font-size: clamp(1rem, 1.3rem, 1.8rem);
+	text-align: right;
+	border: 3px dotted #ffffb8;
 	border-radius: 5rem;
-	color: #ffa500;
-	background-color: #0b6049;
-	line-height: 1;
+	line-height: 1.3rem;
 	padding: 1.25rem;
 }
 
 
 h2 {
     font-size: clamp(1.8rem, 2rem, 2.2rem);
-    font-family: var(--sans);
-	text-align: center;
+    font-family: var(--mono);
+	text-align: left;
+    margin-bottom: 1rem;
 	color: var(--yyyellow);
 }
 
@@ -82,10 +82,20 @@ div.calendar {
  flex-direction: row;
 }
 
-
-
 div.termin {
-	border: 5px dotted #ffffb8;
+	border-radius: 6rem;
+	text-align: center;
+	padding: 2rem;
+}
+
+div.termin-square {
+	border: 1px solid black;
+    min-height: 200px;
+	text-align: center;
+	padding: 2rem;
+}
+
+div.termin-oval {
 	border-radius: 6rem;
 	text-align: center;
 	padding: 2rem;
@@ -121,6 +131,3 @@ div.termin {
         max-width: 1200px; 
     }
 }
-
-
-
