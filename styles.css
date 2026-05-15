@@ -1,76 +1,187 @@
-*{
-    margin: 0;
-    padding: 0;
-}
+@import "reset.css";
+@import "fonts.css";
 
 :root {
     --not-wwwhite: rgb(225, 220, 208);
+<<<<<<< HEAD
     --gggreen: hsl(95, 69%, 28%);
     --yyyellow: #ffffb8;
-    --sans: 'mechanik', 'Helvetica', Arial, sans-serif;
-    --sans-bold: 'FluxischElse-Bold', 'Helvetica', Arial, sans-serif;
-    --mono: 'maple-bold', 'Courier New', Courier, monospace;
-}
 
-/*
-@font-face {
-  font-family: "FluxischElse-Bold";
-  src: url("assets/FluxischElse-Bold.otf") format("opentype");
-  font-style: normal;
-  font-weight: bold;
-}
+    @import "reset.css";
+    @import "fonts.css";
 
-@font-face {
-  font-family: "FluxischElse-Light";
-  src: url("assets/FluxischElse-Light.otf") format("opentype");
-  font-style: normal;
-  font-weight: light;
-}*/
+    :root {
+        --wwwhite: #fff7e8;
+        --gggreen: #1c330c;
+        --yyyellow: #ffffb8;
+        --ooorange: #ffa500;
+        --ttteal: #0b6049;
+        --bbbrown: #44341b;
+        --mmmoss: #c8cec3;
+        --flux: 'FluxischElse', 'Helvetica', Arial, sans-serif;
+        --mech: 'GT-Mechanik-Semi', 'Courier New', Courier, monospace;
+    }
 
+    /* local font files */
+    @font-face {
+      font-family: "maple-bold";
+      src: url("assets/maple-bold.ttf") format("truetype");
+      font-style: normal;
+    }
 
-@font-face {
-  font-family: "maple-bold";
-  src: url("assets/maple-bold.ttf") format("TrueType");
-  font-style: normal;
-}
+    @font-face {
+      font-family: "mechanik-reg";
+      src: url("assets/mechanik-reg.otf") format("opentype");
+      font-style: normal;
+    }
 
+    /* Layout and base styles */
+    body {
+        background-color: var(--gggreen);
+        color: var(--wwwhite);
+        font-family: var(--mech);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+        font-size: 1.25rem;
+        line-height: 1.3;
+    }
 
-@font-face {
-  font-family: "mechanik-reg";
-  src: url("assets/mechanik-reg.otf") format("OpenType");
-  font-style: normal;
-}
+    .grid-wrapper {
+        /* Mobile-first: single column by default */
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        align-items: center;
+    }
 
+    header {
+        display: flex;
+        justify-content: center;
+    }
 
-body {
-    margin: 20px 10px;
-    background-color: var(--gggreen);
-    color: var(--wwwhite);
-    text-rendering: geometricPrecision;
-   	font-family: var(--sans);
-	font-size: 1.25rem;
-	line-height: 1.6rem;
-	color: #fff7e8;
-}
+    h1, h2 {
+        font-family: var(--flux);
+        font-style: normal;
+    }
 
-h1 {
-	font-family: var(--mono);
-	font-size: clamp(1rem, 1.3rem, 1.8rem);
-	text-align: right;
-	border: 3px dotted #ffffb8;
-	border-radius: 5rem;
-	line-height: 1.3rem;
-	padding: 1.25rem;
-}
+    h1 {
+        font-weight: 400;
+        font-size: 3.25rem;
+        text-align: center;
+        line-height: 1;
+        color: var(--ooorange);
+        padding: 4rem 0;
+        width: fit-content;
+        height: fit-content;
+        border-bottom: 5px dotted var(--ttteal);
+    }
 
+    h2 {
+        font-weight: 400;
+        font-size: clamp(1.8rem, 2rem, 2.2rem);
+        color: var(--yyyellow);
+        text-align: center;
+    }
 
-h2 {
-    font-size: clamp(1.8rem, 2rem, 2.2rem);
-    font-family: var(--mono);
-	text-align: left;
-    margin-bottom: 1rem;
-	color: var(--yyyellow);
-}
+    header, section {
+        margin: 1.5rem 0.5rem;
+    }
+
+    section {
+        padding: 1rem 1.5rem;
+    }
+
+    div.calendar {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    p, li {
+        font-weight: 400;
+    }
+
+    p {
+        padding: 1rem 0 2rem 0;
+    }
+
+    .termin {
+        border: 5px dotted var(--yyyellow);
+        text-align: center;
+        padding: 2rem;
+        margin: 1rem;
+        width: 100%;
+        max-width: 13rem;
+        height: 12rem;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .info-termin {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border: 5px dotted var(--ttteal);
+        padding: 2rem;
+        margin: 1rem;
+        width: 100%;
+        max-width: 13rem;
+        height: 12rem;
+        box-sizing: border-box;
+    }
+
+    .qualifier {
+        font-family: var(--flux);
+        font-weight: 400;
+    }
+
+    .date { font-weight: 600; }
+    .theme { font-style: oblique; font-weight: 400; }
+    .expanded { display: none; }
+    .pencil, .envelope { padding: .25rem; font-size: 2rem; }
+    .snail { text-align: center; display: flex; flex-direction: column; font-weight: 500; }
+
+    ul { list-style: none; padding-left: 0; }
+    span.log-date { font-weight: 500; font-style: normal; }
+    li { font-weight: 300; font-style: oblique; position: relative; padding-left: 24px; margin-bottom: 8px; }
+    li::before { content: "⚘"; font-weight: 400; font-size: 1.25rem; font-style: normal; position: absolute; left: 0; margin-right: 8px; }
+
+    #logs { background-color: var(--bbbrown); padding: 3rem 2rem; }
+    #logs h2, #logs ul li { color: var(--mmmoss); }
+
+    .wwws { position: fixed; bottom: 20px; right: 20px; max-width: 280px; width: min(100%, 280px); }
+
+    @media (min-width: 768px) {
+        header { margin-bottom: 4rem; }
+        .grid-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto auto;
+            grid-template-areas:
+                "project place"
+                "dinners dinners"
+                "contact contact"
+                "logs logs";
+            gap: 20px;
+            min-height: 100vh;
+        }
+
+        #project { grid-area: project; padding: 2rem; }
+        #place { grid-area: place; padding: 2rem; }
+        #dinners { grid-area: dinners; }
+        #contact { grid-area: contact; }
+        #logs { grid-area: logs; }
+        section { padding: 1rem; margin: 3rem 5rem; }
+        div.calendar { flex-direction: row; }
+        .termin { padding: 2rem; margin: 2rem; width: 13rem; height: 12rem; }
+    }
 
 
 section {
@@ -103,18 +214,155 @@ div.termin-oval {
 
 .wwws {
     max-width: 500px;
+=======
+	color: var(--yyyellow);
+    text-align: center;
+}
+
+
+header, section {
+	margin: 1.5rem 0.5rem;
+	/* border: 2px lime solid; */
+}
+
+section {
+    padding: 1rem 1.5rem;
+}
+
+
+
+div.calendar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+p, li {
+    font-weight: 400;
+}
+
+p {
+	padding: 1rem 0 2rem 0;
+}
+
+
+.termin {
+	border: 5px dotted var(--yyyellow);
+	text-align: center;
+	padding: 2rem;
+	margin: 1rem;
+	width: 100%;
+	max-width: 13rem;
+	height: 12rem;
+	box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.info-termin {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	border: 5px dotted var(--ttteal);
+	padding: 2rem;
+	margin: 1rem;
+	width: 100%;
+	max-width: 13rem;
+	height: 12rem;
+	box-sizing: border-box;
+}
+
+.qualifier {
+    font-family: var(--flux);
+    font-weight: 400; 
+}
+
+.date {
+    font-weight: 600;
+}	
+
+.theme {
+    font-style: oblique;
+    font-weight: 400;
+}
+
+.expanded {
+    display: none;
+}
+
+.pencil {
+	padding: .25rem;
+	font-size: 2rem;
+}
+
+.envelope {
+	padding: .25rem;
+	font-size: 2rem;
+}
+
+
+.snail {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+span.log-date {
+    font-weight: 500;
+    font-style: normal;
+}
+
+li {
+    font-weight: 300;
+    font-style: oblique;
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 8px;
+}
+
+li::before {
+    content: "⚘";
+    font-weight: 400;
+    font-size: 1.25rem;
+    font-style: normal;
+    position: absolute;
+    left: 0;
+    margin-right: 8px;
+}
+
+#logs {
+    background-color: var(--bbbrown);
+    padding: 3rem 2rem;
+}
+
+#logs h2, #logs ul li {
+     color: var(--mmmoss);
+}
+
+.wwws {
+>>>>>>> origin/main
     position: fixed;
-    bottom: 0;
-    right: 0px;
+    bottom: 20px;
+    right: 20px;
+    max-width: 280px;
+    width: min(100%, 280px);
 }
 
 @media (min-width: 768px) {
-    body {
-        margin: 40px 20px; 
-        max-width: 800px; 
-        margin-left: auto;
-        margin-right: auto;
+
+    header {
+        margin-bottom: 4rem;
     }
+<<<<<<< HEAD
 }
 
 
@@ -131,3 +379,59 @@ div.termin-oval {
         max-width: 1200px; 
     }
 }
+=======
+
+    .grid-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+            "project place"
+            "dinners dinners"
+            "contact contact"
+            "logs logs";
+        gap: 20px;
+        min-height: 100vh;
+    }
+
+    #project {
+        grid-area: project;
+        padding: 2rem;
+    }
+
+    #place {
+        grid-area: place;
+        padding: 2rem;
+    }
+
+    #dinners {
+        grid-area: dinners;
+    }
+
+    #contact {
+        grid-area: contact;
+    }
+
+    #logs {
+        grid-area: logs;
+    }
+
+    section {
+        padding: 1rem;
+        margin: 3rem 5rem;
+    }
+
+    div.calendar {
+        flex-direction: row;
+    }
+    
+    .termin {
+        padding: 2rem;
+	    margin: 2rem;
+	    width: 13rem;
+	    height: 12rem;
+    }
+}
+
+
+>>>>>>> origin/main
