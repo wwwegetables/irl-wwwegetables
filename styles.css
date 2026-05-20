@@ -5,7 +5,7 @@
     --not-wwwhite: rgb(225, 220, 208);
     --gggreen: #1c330c;
     --yyyellow: #ffffb8;
-    --ooorange: #ffa500;
+    --ooorange: #e5a93b;
     --ttteal: #0b6049;
     --bbbrown: #44341b;
     --mmmoss: #c8cec3;
@@ -22,25 +22,28 @@ body {
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
 	font-size: 1.25rem;
+    hyphens: auto;
+    hyphenate-limit-chars: 6 3 2;
 	line-height: 1.3;
 	color: #fff7e8;
+
 }
 
 .grid-wrapper {
     /* Mobile-first: single column by default */
-    display: flex;
-    flex-direction: column;
+    display: grid;
     gap: 10px;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
-    align-items: center;
+    grid-template-columns: 1fr;
 }
 
 
 header {
     display: flex;
-    justify-content: center;
+    background-color: var(--ooorange);
+    height: 2rem;
 }
 
 h1, h2 {
@@ -48,45 +51,76 @@ h1, h2 {
     font-style: normal;
 }
 
-h1 {
+header h1 {
 	font-weight: 400;
-	font-size: 3.25rem;
-	text-align: center;
-	line-height: 1;
-	color: var(--ooorange);
+	font-size: 1.8rem;
+	text-align: left;
+	line-height: 1.3rem;
+	color: var(--gggreen);
+    padding: 5px;
+    font-family: var(--mech);
+    padding-left: 20px;
 	/* background-color: var(--ttteal); */
-	padding: 4rem 0;
+	/*padding: 2rem 0;*/
 	width: fit-content;
 	height: fit-content;
-	border-bottom: 5px dotted var(--ttteal);
+	/*border-bottom: 5px dotted var(--ttteal);*/
 	/* border-radius: 5rem; */
 }
 
 
 h2 {
     font-weight: 400;
-    font-size: clamp(1.8rem, 2rem, 2.2rem);
+    font-size: clamp(1.6rem, 1.8rem, 2rem);
 	color: var(--yyyellow);
-    text-align: center;
+    text-align: left;
+    line-height: 1;
 }
 
-
-header, section {
-	margin: 1.5rem 0.5rem;
-	/* border: 2px lime solid; */
+h3 {
+    font-weight: 400;
+    font-size: clamp(1.2rem, 1.4rem, 1.6rem);
+	color: var(--yyyellow);
+    text-align: left;
+}
+section, footer {
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
 }
 
-section {
-    padding: 1rem 1.5rem;
+#project {
+    font-size: 0.8rem;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    max-width: 90vw;
 }
 
+#project h2{
+    line-height: 0.7;
+}
+
+.wwwegetables{
+    font-family: var(--mech);
+}
+
+.map{
+    max-width: 200px;
+}
 
 
 div.calendar {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: nowrap;
+    overflow: auto;
+    overflow-y: hidden;
+    flex-direction: row;
+    /*justify-content: center;
+    align-items: center;*/
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    width: 100%;
+    min-width: 0;
 }
 
 p, li {
@@ -94,7 +128,7 @@ p, li {
 }
 
 p {
-	padding: 1rem 0 2rem 0;
+	padding: 1rem 0 1rem 0;
 }
 
 
@@ -103,16 +137,36 @@ p {
 	text-align: center;
 	padding: 2rem;
 	margin: 1rem;
-	width: 100%;
+	/*width: 100%;*/
 	max-width: 13rem;
 	height: 12rem;
 	box-sizing: border-box;
-
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    flex-direction: column;
+    flex: 0 0 auto;
 }
 
+.square{
+min-width: 200px;
+aspect-ratio: 1/1;
+
+
+}
+
+.oval{
+border-radius: 50%;
+min-width: 300px;
+height: 200px;
+
+}
+
+.rectangular{
+min-width: 250px;
+aspect-ratio: 3/4;
+
+}
+/*
 .info-termin {
 	display: flex;
 	flex-direction: column;
@@ -124,7 +178,7 @@ p {
 	max-width: 13rem;
 	height: 12rem;
 	box-sizing: border-box;
-}
+}*/
 
 .qualifier {
     font-family: var(--flux);
@@ -133,6 +187,7 @@ p {
 
 .date {
     font-weight: 600;
+
 }	
 
 .theme {
@@ -144,48 +199,56 @@ p {
     display: none;
 }
 
-.pencil {
-	padding: .25rem;
-	font-size: 2rem;
-}
-
-.envelope {
-	padding: .25rem;
-	font-size: 2rem;
-}
 
 
 .snail {
     text-align: center;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     font-weight: 500;
+    vertical-align: baseline;
 }
 
 ul {
     list-style: none;
     padding-left: 0;
+    padding-top: 2rem;
 }
 
 span.log-date {
     font-weight: 500;
     font-style: normal;
+    font-size: 0.5rem;
+    position: relative;
+    padding-right: 1rem;
 }
 
 li {
     font-weight: 300;
     font-style: oblique;
+    font-size: clamp(0.8rem, 0.95rem, 1.1rem);
     position: relative;
     padding-left: 24px;
     margin-bottom: 8px;
 }
 
+/*
 li::before {
-    content: "⚘";
+    content: "✎";
     font-weight: 400;
-    font-size: 1.25rem;
+    font-size: 1.6rem;
     font-style: normal;
     position: absolute;
+    left: 0;
+    margin-right: 8px;
+}*/
+
+.snail::before {
+    content: "✉";
+    font-weight: 400;
+    font-size: 1.6rem;
+    font-style: normal;
+    
     left: 0;
     margin-right: 8px;
 }
@@ -193,19 +256,38 @@ li::before {
 #logs {
     background-color: var(--bbbrown);
     padding: 3rem 2rem;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+.active, .collapsible:hover {
+  background-color: #ccc;
 }
 
 #logs h2, #logs ul li {
      color: var(--mmmoss);
 }
 
+
+/*
 .wwws {
     position: fixed;
     bottom: 20px;
     right: 20px;
     max-width: 280px;
     width: min(100%, 280px);
-}
+}*/
 
 @media (min-width: 768px) {
 
@@ -218,26 +300,31 @@ li::before {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto auto auto;
         grid-template-areas:
-            "project place"
-            "dinners dinners"
-            "contact contact"
-            "logs logs";
-        gap: 20px;
+           "project project"
+           "logs logs"
+           "dinners garden"
+           "contact contact";
+        gap: 10px;
         min-height: 100vh;
     }
 
     #project {
         grid-area: project;
-        padding: 2rem;
+        padding: 1rem;
     }
 
-    #place {
+    /*#place {
         grid-area: place;
         padding: 2rem;
-    }
+    }*/
 
     #dinners {
         grid-area: dinners;
+        min-width: 0;
+    }
+
+    #garden {
+        grid-area: garden;
     }
 
     #contact {
@@ -253,10 +340,7 @@ li::before {
         margin: 3rem 5rem;
     }
 
-    div.calendar {
-        flex-direction: row;
-    }
-    
+ 
     .termin {
         padding: 2rem;
 	    margin: 2rem;
