@@ -1,0 +1,238 @@
+@import "fonts.css";
+@import "reset.css";
+
+:root {
+	--not-wwwhite: rgb(225, 220, 208);
+	--gggreen: #608c3f;
+	--yyyellow: #ffffb8;
+	--ooorange: #d89b2b;
+	--ttteal: #0b6049;
+	--bbbrown: #2b2725;
+	--mmmoss: #c8cec3;
+	--flux: "FluxischElse", "Helvetica", Arial, sans-serif;
+	--mech: "GT-Mechanik-Semi", "Courier New", Courier, monospace;
+	--wweg: "wwwegetative", "GT-Mechanik-Semi";
+}
+
+body {
+	background-color: var(--gggreen);
+	font-family: var(--mech);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+	font-size: 1.25rem;
+	hyphens: auto;
+	hyphenate-limit-chars: 6 3 2;
+	line-height: 1.3;
+	color: var(--bbbrown);
+}
+
+
+.special-w {
+	font-family: var(--wweg);
+	font-size: 3rem;
+}
+
+header {
+	background-color: var(--bbbrown);
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+}
+
+img.map{
+    max-width: 300px;
+}
+
+h1,
+h2 {
+	font-family: var(--flux);
+	font-style: normal;
+}
+
+p{
+    padding-bottom: 2rem;
+}
+
+header h1 {
+	font-weight: 400;
+	font-size: 1.8rem;
+	text-align: left;
+	line-height: 1.3rem;
+	color: var(--gggreen);
+	font-family: var(--mech);
+}
+
+h2 {
+	font-weight: 400;
+	font-size: clamp(1.6rem, 1.8rem, 2rem);
+	color: var(--bbbrown);
+	text-align: left;
+	line-height: 1;
+    padding-bottom: 1rem;
+}
+
+h3 {
+	font-weight: 500;
+	font-size: clamp(1.2rem, 1.4rem, 1.6rem);
+	color: var(--bbbrown);
+	text-align: left;
+    padding-bottom: 1rem;
+
+}
+
+#project {
+	font-size: 0.8rem;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    justify-self: center;
+    padding: 5rem 0 5rem 0;
+    border: red 1px solid;
+    max-width: 60vw;
+}
+
+.project-description{
+
+}
+
+#project h2 {
+	line-height: 0.7;
+}
+
+.wwwegetables {
+	font-family: var(--mech);
+    padding-bottom: 0.5rem;
+}
+
+#logs{
+    padding: 0.5rem 0;
+    margin: 2rem 0; 
+}
+.activities-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 1px solid blue;
+    gap: 20px;
+    padding-bottom: 15rem;
+}
+
+#dinners{
+    width: 49%;
+}
+#garden{
+    width: 49%;
+}
+
+p,
+li {
+	font-weight: 400;
+}
+
+p{ 
+    font-size: clamp(0.7rem, 1rem, 1.2rem);
+    hyphens: auto;
+    hyphenate-limit-chars: 7 3 3;
+}
+
+div.calendar{
+
+  overflow: auto;
+  white-space: nowrap;
+}
+
+div.calendar .termin{
+      display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+
+.termin {
+	border: 2px dotted var(--bbbrown);
+	text-align: center;
+    align-content: center;
+}
+
+.oval {
+	border-radius: 50%;
+    min-width: 15rem;
+    aspect-ratio: 4/2;
+}
+
+.square{
+    aspect-ratio: 1/1;
+    min-width: 10rem;
+}
+
+.rectangle{
+    aspect-ratio: 3/4;
+    min-width: 5rem;
+}
+
+.qualifier {
+	font-family: var(--flux);
+	font-weight: 400;
+}
+
+.date {
+	font-weight: 300;
+}
+
+.theme {
+	font-style: oblique;
+	font-weight: 400;
+}
+
+.snail {
+	text-align: center;
+	font-weight: 500;
+}
+
+span.log-date {
+	font-weight: 500;
+	font-style: normal;
+	font-size: 0.5rem;
+}
+
+li {
+	font-weight: 300;
+	line-height: 0.95rem;
+	font-size: clamp(0.8rem, 0.95rem, 1.1rem);
+}
+
+.snail::before {
+	content: "✉";
+	font-weight: 400;
+	font-size: 1.6rem;
+	font-style: normal;
+}
+
+#logs {
+	border-top: 1px solid var(--bbbrown);
+	border-bottom: 1px solid var(--bbbrown);
+	background-color: var(--gggreen);
+}
+
+.content {
+	background-color: var(--bbbrown);
+}
+
+.active,
+.logs:hover {
+	background-color: #ccc;
+}
+
+#logs h2,
+#logs ul li {
+	color: var(--bbbrown);
+}
+
+.garden-list {
+	font-family: var(--mech);
+	border: 2px dotted var(--brown);
+}

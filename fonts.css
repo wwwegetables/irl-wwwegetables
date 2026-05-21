@@ -302,3 +302,10 @@
   font-weight: 900;
   font-style: oblique;
 }
+
+@font-face {
+  font-family: "wwwegetative";
+  src: url("assets/fonts/wwwegetative.ttf") format("TrueType");
+  font-weight: 900;
+  font-style: oblique;
+}
