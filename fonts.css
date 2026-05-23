@@ -366,3 +366,18 @@
   font-weight: 900;
   font-style: oblique;
 }
+
+/* Adelphe Trouble Font */
+@font-face {
+  font-family: "Adelphe Trouble";
+  src: url("assets/fonts/AdelpheTrouble-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Adelphe Trouble";
+  src: url("assets/fonts/AdelpheTrouble-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
