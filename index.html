@@ -1,204 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="the habitat of wwwegetables.">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sanitize.css@13.0.0/sanitize.min.css">
-   <!--<link rel="stylesheet" href="styles.css">--> 
-    <link rel="stylesheet" href="styles_new.css">
-    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
-    <title>irl wwweggies</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="the habitat of wwwegetables.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sanitize.css@13.0.0/sanitize.min.css">
+  <link rel="stylesheet" href="styles_new.css">
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <title>irl wwweggies</title>
 </head>
-<body> 
-    <!--
-    <div class="flowerpot">
-<div class="ascii-art"> 
-        W 
-      ,,,,,
-    ,,,,,,,,,
-      <span id="msg"></span>
-  ~~~~~~~~~~~~~ 
-    >wwwwwww<        
-        |--o
-        |
-        |
-    o---|
-        |  
-   _____|_____     
-  (           )
-   (         )
-    (       )
-     -------
-</div>
- </div> -->
-
-
-<div class="page-wrapper">
+<body>
     <header>
-<h1 class="greeting">ww<span class="special-w one">h</span>elcome</h1>
+      <h1 class="greeting">ww<span class="special-w one">h</span>egetables</h1>
     </header>
-   <main>
- <div class="grid-wrapper">
+    <div class="content-wrapper">
+    <main>
+        <section id="project">
+          <img class="map" alt="handdrawn map of the space." src="assets/map.svg">
+          <div class="project-text">
+            <h2 class="wwwegetables">w<span class="special-w two">w</span>welcome</h2>
+            <p class="project-description">wwwegetables are a student-organized project with a curious eye for plans and networks.<br> 
+                <br>
+            if you want to learn more about the space or project—swing by one of our collective dinners at finkenau 42.</p>
+          </div>
+        </section>
+        <section class="logs-container">
+          <details id="logs">
+            <summary><h2>loggg</h2></summary>
+            <ul>
+              <li>
+                <div class="date">06.05.2026</div> the third dinner — cauliflower and rice, finished not so late, was cute and quiet.
+              </li>
+              <li>
+                <div class="date">02.05.2026</div> did first garden work — took out old/rotten flowerbeds, plucked some plants for compost, planted some flowers on the sandy soil to see if it's any good.
+              </li>
+            </ul>
+          </details>
+          <div class="vertical-line"></div>
+        </section>
 
-    <section id="project">
-        <img class="map" alt="handdrawn map of the space." src="assets/map.svg">
-        <div class="project-text">
-   <h2 class="wwwegetables">w<span class="special-w two">w</span>wegetables</h2>
-    <p class="project-description">we meet & eat at hfbk hamburg in the kochwerkstatt, located in the filmhaus. wwwegetables are a student-organized project with a curious eye for plans and networks.</p>
-<!--<p>we meet & eat at hfbk hamburg in the kochwerkstatt, located in the filmhaus. (cute little map coming soon!) the garden is right by the kitchen door, so sometimes we can eat outside.</p>-->
-</div>    
-</section>
+        <div class="activities-container">
+          <section id="dinners">
+            <h2>collective dinners</h2>
+            <p>the dinners happen on wednesdays and are open to students, staff, family, friends, and generally those, who could enjoy a lovely wwweggie-meal.</p>
+            <p>the gatherings happen under the atmosphere of sharing: food, time, tasks, thoughts. so, bringning over a snack or a drink is greatly encouraged.</p>
+             <p>you can refer to the schedule below to find out more about the previous and upcoming dinners.</p>
+            <h3>schedule 2026</h3>
+            <div class="calendar">
+              <div class="termin square">
+                <div class="date">may 20, 18:00</div>
+                <div class="theme">bok-choy</div>
+              </div>
 
-<section class="logs-container">
- <details id="logs">
-    <summary><h2>loggg</h2></summary>
-        
-        <ul>
-             <li>
-                <div class="date">06.05.2026 </div> the third dinner — cauliflower and rice, finished not so late, was cute and quiet.
-            </li>
-            <li>
-                <div class="date">02.05.2026 </div> did first garden work — took out old/rotten flowerbeds,  plucked some plants for compost, planted some flowers on the sandy soil to see if it's any good. 
-            </li>
-           
-        </ul>
-        
-    </details>
-     <div class="vertical-line"></div>
-     </section>
-<!--
-    <section id="place">
-        <h2>the location</h2>
-        <p>
-        we meet & eat at hfbk hamburg in the kochwerkstatt, located in the filmhaus. (cute little map coming soon!) the garden is right by the kitchen door, so sometimes we can eat outside.
-        </p>
-    </section> -->
-  
-   
-    
+              <div class="termin oval">
+                <div class="date">may 20, 18:00</div>
+                <div class="theme">bok-choy</div>
+              </div>
 
-<div class="activities-container">
-    <section id="dinners">
-        <h2>collective dinners</h2>
-         <p>
-        we meet & eat at hfbk hamburg in the kochwerkstatt, located in the filmhaus. (cute little map coming soon!) the garden is right by the kitchen door, so sometimes we can eat outside.
-        </p>
-        <h3>schedule</h3>
+              <div class="termin rectangle active">
+                <div class="date">may 20, 18:00</div>
+                <div class="theme">bok-choy</div>
+              </div>
 
-        <div class="calendar">
+              <div class="termin rectangle">
+                <div class="date">may 20, 18:00</div>
+                <div class="theme">bok-choy</div>
+              </div>
 
-          <!--  <div class="info-termin">
-        
-                <div class="qualifier">
-                sort of bi-weekly, on wednesdays:
-                 </div>
-            </div>-->
+              <div class="termin oval">
+                <div class="date">may 20, 18:00</div>
+                <div class="theme">bok-choy</div>
+              </div>
 
-            <div class="termin square">
-        
-                <div class="date">
-                may 20, 18:00
-                 </div>
-
-                <div class="theme">
-                    bok-choy
-                </div>
+              <div class="termin square">
+                <div class="date">may 20, 18:00</div>
+                <div class="theme">bok-choy</div>
+              </div>
             </div>
+          </section>
 
-            <div class="termin oval">
-        
-                  <div class="date">
-                may 20, 18:00
-                 </div>
+          <section id="garden">
+            <h2>shared garden</h2>
+            <p>the garden is located right next to the filmhaus of hfbk hamburg. </p>
+            <p>it is a great place to meet various new friends (with a plethora of insects, snails, birds), plant some wwweggies or flowers, ponder, photosynthesize, and so much more.</p>
+            <h3>looking for</h3>
+            <p>we find it important to give back to the garden for welcoming us. some of this love and care work requires tools and resource, that we are on look-out for. if you have any of the things mentioned below and would like to donate them — hellyeah (check the wording, lol)</p>
+            <ul class="garden-list">
+              <li>shovel</li>
+              <li>rake</li>
+              <li>hoe</li>
+              <li>gardening gloves</li>
+              <li>watering can</li>
+              <li>garden hose</li>
+              <li>pruning shears</li>
+              <li>wheelbarrow</li>
+              <li>hand trowel</li>
+              <li>soil</li>
+              <li>compost</li>
+              <li>mulch</li>
+              <li>seeds</li>
+              <li>fertilizer</li>
+            </ul>
+          </section>
 
-                <div class="theme">
-                    bok-choy
-                </div>
-            </div>
-
-             <div class="termin rectangle active">
-            <div class="date">
-                may 20, 18:00
-                 </div>
-
-                <div class="theme">
-                    bok-choy
-                </div>
-            </div>
-
-                       <div class="termin rectangle">
-            <div class="date">
-                may 20, 18:00
-                 </div>
-
-                <div class="theme">
-                    bok-choy
-                </div>
-            </div>
-
-               <div class="termin oval">
-        
-                   <div class="date">
-                may 20, 18:00
-                 </div>
-
-                <div class="theme">
-                    bok-choy
-                </div>
-            </div>
-               <div class="termin square">
-            <div class="date">
-                may 20, 18:00
-                 </div>
-
-                <div class="theme">
-                    bok-choy
-                </div>
-            </div>
-        </div>
-        
-    </section>
-
-   
-
-    <section id="garden">
-        <h2>shared garden</h2>
-        <p>here goes the garden text description. we meet & eat at hfbk hamburg in the kochwerkstatt, located in the filmhaus.</p>
-        <h3>looking for</h3>
-        <ul class="garden-list">
-  <li>shovel</li>
-  <li>rake</li>
-  <li>hoe</li>
-  <li>gardening gloves</li>
-  <li>watering can</li>
-  <li>garden hose</li>
-  <li>pruning shears</li>
-  <li>wheelbarrow</li>
-  <li>hand trowel</li>
-  <li>soil</li>
-  <li>compost</li>
-  <li>mulch</li>
-  <li>seeds</li>
-  <li>fertilizer</li>
-</ul>
-    </section>
-</div>
-
-  <img class="wwws" alt="a grass patch made of w's." src="assets/wwws.svg">
-
-    
-
-        <footer id="contact">
-            <div class="ground">
-        <h3>let's keep in touch?</h3>
-        <p class="snail">snai@w<span class="special-w two">v</span>wegetables.net
-        </p>
-        </div>
-    </footer>
- </div>
+       <img class="wwws" alt="a grass patch made of w's." src="assets/wwws.svg">
     </main>
- </div>
-<script src="script.js"></script>
+    </div>
+          <footer id="contact">
+          <div class="ground">
+            <h3>let's keep in touch?</h3>
+            <a class="snail-mail" href="mailto:snail@wwwegetables.net">snail@w<span class="special-w two">v</span>wegetables.net</a>
+          </div>
+        </footer>
+  <script src="script.js"></script>
 </body>
 </html>

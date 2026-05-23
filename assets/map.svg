@@ -12,11 +12,11 @@
       }
 
       .st0, .st1, .st2, .st3, .st4 {
-        fill: #2b2623;
+        fill: #5F7738;
       }
 
       .st1, .st2 {
-        stroke: #2b2623;
+        stroke: #5F7738;
       }
 
       .st5, .st3, .st4 {
