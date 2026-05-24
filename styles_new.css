@@ -15,7 +15,41 @@ html, body {
   --mmmulch: #783525;
   --mech: "GT-Mechanik-Semi", "Helvetica", Arial, sans-serif;
   --wweg: "wwwegetative", "GT-Mechanik-Semi";
-  --trouble: "Adelphe Trouble", "Helvetica", Arial, sans-serif;
+  --carving: "CarvingSoft", "Helvetica", Arial, sans-serif;
+  
+  /*weights*/
+  --fw-light: 300;
+  --fw-normal: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  
+  /*font sizes*/
+  --fs-2xs: 0.512rem;     /* ~8px */
+  --fs-xs: 0.64rem;       /* ~10px */
+  --fs-sm: 0.8rem;        /* ~13px */
+  --fs-base: 1rem;        /* ~16px */
+  --fs-md: 1.25rem;       /* ~20px */
+  --fs-lg: 1.563rem;      /* ~25px */
+  --fs-xl: 1.953rem;      /* ~31px */
+  --fs-2xl: 2.441rem;     /* ~39px */
+
+  /*line height*/
+  --lh-tight: 1.1;
+  --lh-normal: 1.5;
+  --lh-loose: 1.6;
+
+  /*letter spacing*/
+  --ls-tight: -0.02em;
+  --ls-normal: 0;
+  --ls-loose: 0.02em;
+  
+  /*spacing, margins, etc*/
+  --sp-xs: 0.25rem;       /* ~4px */
+  --sp-sm: 0.5rem;        /* ~8px */
+  --sp-md: 1rem;          /* ~16px */
+  --sp-lg: 1.5rem;        /* ~24px */
+  --sp-xl: 2rem;          /* ~32px */
+  --sp-2xl: 3rem;         /* ~48px */
 }
 
 body {
@@ -43,49 +77,52 @@ main{
 h1,
 h2,
 h3 {
-  font-family: var(--trouble);
+  font-family: var(--carving);
+  font-weight: var(--fw-semibold);
   font-style: normal;
+  font-size: var(--fs-md);
+  letter-spacing: var(--ls-tight);
 }
 
 p {
-  padding-bottom: 21px;
-  font-size: 16px;
-  font-weight: 400;
+  padding-bottom: var(--sp-lg);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-normal);
   hyphens: auto;
   hyphenate-limit-chars: 7 3 3;
-  line-height: 24px;
-  max-width: 50ch;
+  line-height: var(--lh-normal);
+  max-width: 60ch;
 }
 
 li {
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 0.95rem;
+  font-size: var(--fs-base);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-normal);
 }
 
 header {
   align-items: center;
-  background-color: var(--gggreen);
+  background-color: var(--not-wwwhite);
   display: flex;
   height: 2rem;
   position: relative;
   z-index: 30;
+  padding-top: var(--sp-md);
 }
 
 header h1 {
   align-items: center;
-  color: var(--yyyellow);
+  color: var(--bbbrown);
   display: flex;
   font-family: var(--mech);
-  font-size: 21px;
-  font-weight: 400;
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-medium);
   line-height: 3rem;
+  padding-left: 1rem;
 }
 
 h2 {
   color: var(--bbbrown);
-  font-size: 26px;
-  font-weight: 400;
   line-height: 1;
   padding-bottom: 1rem;
   text-align: left;
@@ -93,8 +130,6 @@ h2 {
 
 h3 {
   color: var(--bbbrown);
-  font-size: 21px;
-  font-weight: 400;
   padding-bottom: 0.5rem;
   text-align: left;
   padding-top: 1rem;
@@ -114,46 +149,48 @@ span.special-w{
 span.one {
   display: inline-block;
   font-size: 3rem;
-  margin-left: -10px;
-  margin-right: -10px;
+  margin-left: -0.625rem;
+  margin-right: -0.625rem;
   position: relative;
-  top: 10px;
+  top: 0.625rem;
   transform: rotateZ(15deg);
 }
 
 .special-w.two {
   font-size: 5rem;
-  margin-left: -20px;
-  margin-right: -25px;
+  margin-left: -1.25rem;
+  margin-right: -1.5625rem;
   position: relative;
-  top: 20px;
+  top: 1.25rem;
 }
 
 .special-w.three{
-  font-size: 3rem;
-  margin-left: -5px;
-  margin-right: -5px;
+  font-size: 2.5rem;
+  margin-left: -0.3125rem;
+  margin-right: -0.3125rem;
   position: relative;
-  top: 10px;
+  top: 0.625rem;
   transform: rotateZ(-15deg);
 }
 
 
 .wwwegetables {
   font-family: var(--mech);
-  font-weight: 500;
+  font-weight: var(--fw-medium);
   padding-bottom: 0.5rem;
-  color: var(--gggreen);
+  color: var(--bbbrown);
+  font-size: var(--fs-lg);
 }
 
 #project {
   align-items: center;
   display: flex;
   flex-direction: row;
-  gap: 5px;
+  gap: 0.3125rem;
   justify-content: center;
-  padding: 4rem 0 3rem;
-  color: var(--gggreen);
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  color: var(--bbbrown);
   background-color: var(--not-wwwhite);
   position: relative;
   z-index: 20;
@@ -164,13 +201,12 @@ span.one {
 }
 
 p.project-description {
-  font-size: clamp(0.6rem, 0.8rem, 1rem);
-  max-width: 400px;
-  line-height: 1rem;
+  font-size: var(--fs-base);
+  max-width: 25rem;
 }
 
 img.map {
-  max-width: 250px;
+  max-width: 15.625rem;
 }
 
 #logs {
@@ -183,12 +219,13 @@ img.map {
   padding-bottom: 0.5rem;
   position: relative;
   z-index: 3;
+  padding-left: 3rem;
 }
 
 #logs[open] h2,
 #logs[open] ul li,
 #logs[open]  {
-  color: var(--yyyellow);
+  color: var(--not-wwwhite);
   background-color: var(--gggreen);
 }
 
@@ -206,12 +243,31 @@ img.map {
 
 #logs h2 {
   position: relative;
-  top: 5px;
+  top: 0.3125rem;
 }
 
+#logs ul {
+  padding-left: var(--sp-md);
+}
+
+li.logs-list{
+padding-bottom: var(--sp-md);
+padding-bottom: var(--sp-lg);
+}
 
 #logs ul li {
   line-height: 1.4rem;
+  margin-bottom: var(--sp-lg);
+}
+
+
+#logs:hover {
+  background-color: var(--gggreen);
+ 
+}
+#logs h2:hover {
+  color: var(--not-wwwhite) !important;
+ 
 }
 
 details {
@@ -232,7 +288,7 @@ details summary::-webkit-details-marker {
 details summary::marker {
   color: transparent;
   content: "";
-  font-size: 0;
+  font-size: var(--fs-none);
 }
 
 .activities-container {
@@ -240,19 +296,27 @@ details summary::marker {
   flex-direction: row;
   justify-content: space-evenly;
   padding-bottom: 10rem;
+  align-items: flex-start;
 }
 
 #dinners,
 #garden {
   width: 44%;
   margin-bottom: 10rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 2.5rem;
+  
 }
 
 
 
 .vertical-line {
   background-color: var(--bbbrown);
-  width: 1px;
+  width: 0.0625rem;
   position: fixed;
   height: 100vh;
   top: 0;
@@ -265,7 +329,7 @@ div.calendar {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  gap: 20px;
+  gap: var(--sp-lg);
   max-width: 100vw;
   overflow: auto;
   position: relative;
@@ -276,6 +340,8 @@ div.calendar {
   overflow-y: hidden;
   -ms-overflow-style: none;  
   scrollbar-width: none; 
+  margin-left: -5.9rem;
+  margin-right: -5.9rem;
 }
 
 .calendar::-webkit-scrollbar { 
@@ -284,12 +350,14 @@ div.calendar {
 
 div.calendar .termin {
   color: var(--bbbrown);
-  padding: 14px;
+  padding: 0.875rem;
   text-align: center;
+  line-height: var(--lh-normal);
   text-decoration: none;
   height: fit-content;
     margin-top: 0.5rem;
 }
+
 
 .termin {
   align-content: center;
@@ -301,60 +369,54 @@ div.calendar .termin {
 }
 
 div.active {
-  border: 1px solid var(--bbbrown);
-  min-width: 18rem;
-  transform: rotateY(15deg);
+  border: 2px dotted var(--gggreen);
+  color: var(--not-wwwhite) !important;
+  background-color: var(--gggreen);
 }
 
-#logs:hover {
-  background-color: var(--gggreen);
-  color: var(--yyyellow) !important;
- 
-}
 
 .oval {
   aspect-ratio: 3 / 2;
   background-color: var(--not-wwwhite);
   border-radius: 50%;
-  min-width: 15rem;
+  min-width: 10rem;
 }
 
 .square {
   aspect-ratio: 1 / 1;
   background-color: var(--not-wwwhite);
-  min-width: 9rem;
+  min-width: 10rem;
 }
 
 .rectangle {
   aspect-ratio: 3 / 2;
   background-color: var(--not-wwwhite);
-  min-width: 13rem;
+  min-width: 10rem;
 }
 
 
 .date {
-  font-size: 0.9rem;
-  font-weight: 300;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-light);
 }
 
 .theme {
-  font-weight: 400;
+  font-weight: var(--fw-normal);
 }
 
 
 .wwws {
-  bottom: 57px;
+  bottom: 3.5625rem;
   display: block;
-  max-width: 180px;
-  mix-blend-mode: multiply;
+  max-width: 11.25rem;
   position: fixed;
-  right: 10px;
+  right: 0.625rem;
   z-index: 1000;
-  padding-bottom: 20px;
+  padding-bottom: var(--sp-lg);
 }
 
 .divider{
-  font-size: 0.8rem;
+  font-size: var(--fs-xs);
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -374,7 +436,7 @@ a.telegram{
 }
 
 .garden-list li{
-  font-size: 14px;
+  font-size: var(--fs-sm);
   line-height: 1rem;
 }
 
@@ -383,44 +445,45 @@ li.got-it{
 }
 
 footer {
-  background-color: var(--bbbrown);
+  background-color: var(--gggreen);
   bottom: 0;
-  color: var(--yyyellow);
-  position: static;
+  color: var(--not-wwwhite);
+  position: relative;
   width: 100%;
   left: 0;
   padding-top: 1rem;
   padding-bottom: 1rem;
   margin-bottom: 0;
-  
+  z-index: 40;
 }
 
 .ground{
   display: flex;
   flex-direction: column;
   line-height: 1.5rem;
+  padding-left: 3rem;
 }
 
 footer a{
   margin: 0;
   text-decoration: none;
-	color: var(--yyyellow);
+	color: var(--not-wwwhite);
 	padding: 0;
 }
 
 @media (max-width: 768px) {
 
   img.map{
-    min-width: 300px;
+    min-width: 18.75rem;
   }
 
   #logs{
-    padding: 10px;
+    padding: 0.625rem;
   }
 
   #project p{
-    font-size: 18px;
-    line-height: 24px;
+    font-size: var(--fs-base);
+    line-height: var(--lh-normal);
   }
 
   .activities-container{
@@ -437,7 +500,7 @@ footer a{
 
   #dinners{
     border-bottom: 1px solid var(--bbbrown);
-    padding-bottom: 20px;
+    padding-bottom: var(--sp-lg);
   }
 
   .calendar {
@@ -457,7 +520,7 @@ footer a{
     justify-content: center;
     align-content: center;
     padding-left: 10px;
-    padding-right: 10px;
+    padding-right: 0.625rem;
 }
    img.map{
     width: 100%;
@@ -470,8 +533,8 @@ footer a{
    #dinners,
   #garden{
     width: 100%;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: var(--sp-lg);
+    margin-right: var(--sp-lg);
     margin-bottom: 0;
     
   }
