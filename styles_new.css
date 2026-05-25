@@ -1,8 +1,22 @@
 @import "fonts.css";
 @import "reset.css";
 
-html, body {
+/* Z-INDEX LAYER GUIDE
+ * 0: #project (main content background)
+ * 1: .project-details (project section container)
+ * 2: footer (footer section)
+ * 3: .vertical-line (divider between dinners and garden)
+ * 4: #logs, .logs (log details element)
+ * 5: #dinners, #garden (activity sections)
+ * 6: div.calendar (calendar container)
+ * 7: .termin (calendar items)
+ * 8: .wwws (fixed grass sign)
+ */
+
+html,
+body {
   height: 100%;
+  overflow-x: hidden;
 }
 
 :root {
@@ -16,40 +30,40 @@ html, body {
   --mech: "GT-Mechanik-Semi", "Helvetica", Arial, sans-serif;
   --wweg: "wwwegetative", "GT-Mechanik-Semi";
   --carving: "CarvingSoft", "Helvetica", Arial, sans-serif;
-  
-  /*weights*/
+
+  /* weights */
   --fw-light: 300;
   --fw-normal: 400;
   --fw-medium: 500;
   --fw-semibold: 600;
-  
-  /*font sizes*/
-  --fs-2xs: 0.512rem;     /* ~8px */
-  --fs-xs: 0.64rem;       /* ~10px */
-  --fs-sm: 0.8rem;        /* ~13px */
-  --fs-base: 1rem;        /* ~16px */
-  --fs-md: 1.25rem;       /* ~20px */
-  --fs-lg: 1.563rem;      /* ~25px */
-  --fs-xl: 1.953rem;      /* ~31px */
-  --fs-2xl: 2.441rem;     /* ~39px */
 
-  /*line height*/
+  /* font sizes */
+  --fs-2xs: 0.512rem;
+  --fs-xs: 0.64rem;
+  --fs-sm: 0.8rem;
+  --fs-base: 1rem;
+  --fs-md: 1.25rem;
+  --fs-lg: 1.563rem;
+  --fs-xl: 1.953rem;
+  --fs-2xl: 2.441rem;
+
+  /* line height */
   --lh-tight: 1.1;
   --lh-normal: 1.5;
   --lh-loose: 1.6;
 
-  /*letter spacing*/
+  /* letter spacing */
   --ls-tight: -0.02em;
   --ls-normal: 0;
   --ls-loose: 0.02em;
-  
-  /*spacing, margins, etc*/
-  --sp-xs: 0.25rem;       /* ~4px */
-  --sp-sm: 0.5rem;        /* ~8px */
-  --sp-md: 1rem;          /* ~16px */
-  --sp-lg: 1.5rem;        /* ~24px */
-  --sp-xl: 2rem;          /* ~32px */
-  --sp-2xl: 3rem;         /* ~48px */
+
+  /* spacing */
+  --sp-xs: 0.25rem;
+  --sp-sm: 0.5rem;
+  --sp-md: 1rem;
+  --sp-lg: 1.5rem;
+  --sp-xl: 2rem;
+  --sp-2xl: 3rem;
 }
 
 body {
@@ -68,11 +82,9 @@ body {
   padding: 0;
 }
 
-
-main{
-	flex:1;
+main {
+  flex: 1;
 }
-
 
 h1,
 h2,
@@ -82,6 +94,9 @@ h3 {
   font-style: normal;
   font-size: var(--fs-md);
   letter-spacing: var(--ls-tight);
+  color: var(--bbbrown);
+  text-align: left;
+  padding-bottom: var(--sp-lg);
 }
 
 p {
@@ -100,50 +115,42 @@ li {
   line-height: var(--lh-normal);
 }
 
+a {
+  color: inherit;
+}
+
+/* header */
 header {
   align-items: center;
-  background-color: var(--not-wwwhite);
   display: flex;
   height: 2rem;
   position: relative;
-  z-index: 30;
-  padding-top: var(--sp-md);
+  padding-top: var(--sp-lg);
+  border-bottom: 2px solid var(--bbbrown);
+  background-color: var(--not-wwwhite);
+  z-index: 5;
 }
 
 header h1 {
   align-items: center;
-  color: var(--bbbrown);
   display: flex;
   font-family: var(--mech);
   font-size: var(--fs-lg);
   font-weight: var(--fw-medium);
   line-height: 3rem;
-  padding-left: 1rem;
+  padding-left: var(--sp-md);
 }
 
-h2 {
-  color: var(--bbbrown);
-  line-height: 1;
-  padding-bottom: 1rem;
-  text-align: left;
-}
-
-h3 {
-  color: var(--bbbrown);
-  padding-bottom: 0.5rem;
-  text-align: left;
-  padding-top: 1rem;
-}
-
+/* typography accents */
 .special-w {
   font-family: var(--wweg);
 }
 
-span.special-w{
+span.special-w {
   margin-top: 0;
   margin-bottom: 0;
   padding-top: 0;
-  line-height: 0rem;
+  line-height: 0;
 }
 
 span.one {
@@ -164,7 +171,7 @@ span.one {
   top: 1.25rem;
 }
 
-.special-w.three{
+.special-w.three {
   font-size: 2.5rem;
   margin-left: -0.3125rem;
   margin-right: -0.3125rem;
@@ -173,27 +180,46 @@ span.one {
   transform: rotateZ(-15deg);
 }
 
-
 .wwwegetables {
   font-family: var(--mech);
   font-weight: var(--fw-medium);
-  padding-bottom: 0.5rem;
+  padding-bottom: var(--sp-sm);
   color: var(--bbbrown);
   font-size: var(--fs-lg);
 }
 
+/* project */
 #project {
   align-items: center;
   display: flex;
   flex-direction: row;
-  gap: 0.3125rem;
+  gap: var(--sp-xs);
   justify-content: center;
-  padding-top: 10rem;
-  padding-bottom: 10rem;
+  padding-top: var(--sp-2xl);
+  padding-bottom: var(--sp-2xl);
+  margin-bottom: var(--sp-2xl);
+  margin-top: var(--sp-2xl);
   color: var(--bbbrown);
   background-color: var(--not-wwwhite);
   position: relative;
-  z-index: 20;
+  z-index: 5;
+  flex: 1;
+}
+
+.project-details {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: flex-start;
+  position: relative;
+  background-color: var(--not-wwwhite);
+  z-index: 4;
+
+}
+
+.project-text {
+  display: flex;
+  flex-direction: column;
 }
 
 #project h2 {
@@ -202,72 +228,93 @@ span.one {
 
 p.project-description {
   font-size: var(--fs-base);
-  max-width: 25rem;
+  max-width: 60ch;
+  padding-bottom: var(--sp-md)
 }
 
 img.map {
-  max-width: 15.625rem;
+  max-width: 25rem;
+  z-index:0;
 }
 
+/* log */
 #logs {
-  background-color: var(--not-wwwhite);
-  border-bottom: 1px solid var(--bbbrown);
-  border-top: 1px solid var(--bbbrown);
   cursor: pointer;
-  margin-bottom: 2rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding-right: var(--sp-sm);
   position: relative;
-  z-index: 3;
-  padding-left: 3rem;
+  max-width: 400px;
+  max-height: 100dvh;
+  overflow-y: auto;
+  z-index: 4;
 }
 
-#logs[open] h2,
-#logs[open] ul li,
-#logs[open]  {
-  color: var(--not-wwwhite);
-  background-color: var(--gggreen);
+.logs {
+  max-width: 300px;
+  position: absolute;
+  right: 10px;
+  z-index: 4;
 }
-
 
 .logs-container {
   background-color: var(--not-wwwhite);
   position: relative;
-  z-index: 2;
 }
 
 .logs-container:has(#logs[open]) {
-  background-color: var(--gggreen); 
+  color: var(--gggreen);
 }
 
+summary{
+  padding-bottom: var(--sp-lg);
+}
 
-#logs h2 {
-  position: relative;
-  top: 0.3125rem;
+.log-list{
+  max-height: 300px;
+}
+
+div.log-date{
+  font-size: var(--fs-xs);
+  padding-bottom: 0.5rem;
+  font-style: oblique;
 }
 
 #logs ul {
   padding-left: var(--sp-md);
-}
-
-li.logs-list{
-padding-bottom: var(--sp-md);
-padding-bottom: var(--sp-lg);
+  padding-right: var(--sp-md);
 }
 
 #logs ul li {
-  line-height: 1.4rem;
+  line-height: var(--lh-tight);
   margin-bottom: var(--sp-lg);
+  font-size: var(--fs-sm);
+  text-align: justify;
+  max-width: 300px;
+  hyphens: auto;
 }
 
+li.logs-list {
+  padding-bottom: var(--sp-lg);
+}
+
+#logs[open] summary{
+  text-align: right;
+  position: sticky;
+  align-self: right;
+  top: 0;
+  font-weight: var(--fw-semibold);
+}
+
+#logs[open],
+#logs[open] ul li {
+  color: var(--gggreen);
+}
 
 #logs:hover {
-  background-color: var(--gggreen);
- 
+  color: var(--gggreen);
 }
+
 #logs h2:hover {
   color: var(--not-wwwhite) !important;
- 
 }
 
 details {
@@ -288,43 +335,49 @@ details summary::-webkit-details-marker {
 details summary::marker {
   color: transparent;
   content: "";
-  font-size: var(--fs-none);
+  font-size: var(--fs-2xs);
 }
 
+/* activities */
 .activities-container {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  padding-bottom: 10rem;
   align-items: flex-start;
+  border-top: 2px solid var(--bbbrown);
+  height: 100%;
+  background-color: var(--not-wwwhite);
+}
+
+.vertical-line{
+  width: 2px;
+  background: var(--bbbrown);
+  position: fixed;
+  right: calc(50% - 1px);
+  z-index: 3;
+  height: calc(100vh - 2px);
+  top: 0;
 }
 
 #dinners,
 #garden {
   width: 44%;
-  margin-bottom: 10rem;
-  padding-left: 4rem;
-  padding-right: 4rem;
+  padding-left: var(--sp-2xl);
+  padding-right: var(--sp-2xl);
+  padding-top: var(--sp-2xl);
+  padding-bottom: var(--sp-2xl);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 2.5rem;
-  
+  z-index: 5;
+ 
 }
 
-
-
-.vertical-line {
-  background-color: var(--bbbrown);
-  width: 0.0625rem;
-  position: fixed;
-  height: 100vh;
-  top: 0;
-  left: 50%;
-  z-index: 1;
+#garden {
+  height: 100%;
 }
 
-
+/* calendar */
 div.calendar {
   align-items: center;
   display: flex;
@@ -335,18 +388,18 @@ div.calendar {
   overflow: auto;
   position: relative;
   white-space: nowrap;
-  z-index: 1000;
+  z-index: 6;
   height: fit-content;
   overflow-x: auto;
   overflow-y: hidden;
-  -ms-overflow-style: none;  
-  scrollbar-width: none; 
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   margin-left: -5.9rem;
   margin-right: -5.9rem;
 }
 
-.calendar::-webkit-scrollbar { 
-    display: none;  
+.calendar::-webkit-scrollbar {
+  display: none;
 }
 
 div.calendar .termin {
@@ -356,9 +409,8 @@ div.calendar .termin {
   line-height: var(--lh-normal);
   text-decoration: none;
   height: fit-content;
-    margin-top: 0.5rem;
+  margin-top: var(--sp-sm);
 }
-
 
 .termin {
   align-content: center;
@@ -366,7 +418,7 @@ div.calendar .termin {
   box-sizing: border-box;
   position: relative;
   text-align: center;
-  z-index: 999;
+  z-index: 7;
 }
 
 div.active {
@@ -374,7 +426,6 @@ div.active {
   color: var(--not-wwwhite) !important;
   background-color: var(--gggreen);
 }
-
 
 .oval {
   aspect-ratio: 3 / 2;
@@ -395,7 +446,6 @@ div.active {
   min-width: 10rem;
 }
 
-
 .date {
   font-size: var(--fs-sm);
   font-weight: var(--fw-light);
@@ -405,46 +455,54 @@ div.active {
   font-weight: var(--fw-normal);
 }
 
+/* garden */
+.garden-image img {
+  max-width: 100px;
+  margin-top: var(--sp-md);
+   margin-bottom: var(--sp-md);
+}
 
+.garden-list {
+  border: 2px dotted var(--bbbrown);
+  padding: var(--sp-md) var(--sp-xl) var(--sp-2xl) var(--sp-xl);
+  max-width: fit-content;
+  position: relative;
+  margin-top: var(--sp-md);
+}
+
+.garden-list li {
+  font-size: var(--fs-sm);
+  line-height: 1rem;
+}
+
+li.got-it {
+  text-decoration: line-through;
+}
+
+/* fixed sign */
 .wwws {
   bottom: 3.5625rem;
   display: block;
   max-width: 11.25rem;
   position: fixed;
   right: 0.625rem;
-  z-index: 1000;
+  z-index: 8;
   padding-bottom: var(--sp-lg);
 }
 
-.divider{
+
+/* divider */
+.divider {
   font-size: var(--fs-xs);
   display: flex;
   flex-direction: row;
   justify-content: center;
   width: 100%;
+  margin-top: var(--sp-md);
+  margin-bottom: var(--sp-md);
 }
 
-a.telegram{
-  color: inherit;
-}
-
-.garden-list{
-	border: 2px dotted var(--bbbrown);
-	padding: 1rem 2rem 4rem 2rem;
-  max-width: fit-content;
-  position: relative;
-  margin-top: 1rem;
-}
-
-.garden-list li{
-  font-size: var(--fs-sm);
-  line-height: 1rem;
-}
-
-li.got-it{
-  text-decoration: line-through;
-}
-
+/* footer */
 footer {
   background-color: var(--gggreen);
   bottom: 0;
@@ -452,54 +510,58 @@ footer {
   position: relative;
   width: 100%;
   left: 0;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: var(--sp-md);
+  padding-bottom: var(--sp-md);
   margin-bottom: 0;
-  z-index: 40;
+  z-index: 4;
 }
 
-.ground{
+.ground {
   display: flex;
   flex-direction: column;
   line-height: 1.5rem;
-  padding-left: 3rem;
+  padding-left: var(--sp-2xl);
 }
 
-footer a{
+footer a {
   margin: 0;
   text-decoration: none;
-	color: var(--not-wwwhite);
-	padding: 0;
+  color: var(--not-wwwhite);
+  padding: 0;
 }
 
-@media (max-width: 768px) {
+a.telegram {
+  color: inherit;
+}
 
-  img.map{
+/* responsive */
+@media (max-width: 768px) {
+  img.map {
     min-width: 18.75rem;
   }
 
-  #logs{
-    padding: 0.625rem;
+  #logs {
+    padding: var(--sp-sm);
   }
 
-  #project p{
+  #project p {
     font-size: var(--fs-base);
     line-height: var(--lh-normal);
   }
 
-  .activities-container{
+  .activities-container {
     flex-direction: column;
     margin-bottom: 0;
     align-content: center;
   }
 
   #dinners,
-  #garden{
+  #garden {
     width: 100%;
-    margin-bottom: 0;   
+    margin-bottom: 0;
   }
 
-  #dinners{
+  #dinners {
     border-bottom: 1px solid var(--bbbrown);
     padding-bottom: var(--sp-lg);
   }
@@ -510,36 +572,38 @@ footer a{
     max-width: 100%;
   }
 
-  .vertical-line{
+  .vertical-line {
     visibility: hidden;
   }
 }
 
 @media (max-width: 480px) {
-#project{
-   flex-direction: column;
+  #project {
+    flex-direction: column;
     justify-content: center;
     align-content: center;
     padding-left: 10px;
     padding-right: 0.625rem;
-}
-   img.map{
+  }
+
+  img.map {
     width: 100%;
   }
-    .activities-container{
+
+  .activities-container {
     flex-direction: column;
     margin-bottom: 0;
   }
 
-   #dinners,
-  #garden{
+  #dinners,
+  #garden {
     width: 100%;
     margin-left: var(--sp-lg);
     margin-right: var(--sp-lg);
     margin-bottom: 0;
-    
   }
-  .vertical-line{
+
+  .vertical-line {
     visibility: hidden;
   }
 }
