@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // this site needs water
 
-const wiltingHours = 1;
+const wiltingHours = 0.5;
 const dayLength = wiltingHours * 60 * 60 * 1000;
 let savedTime = Number(localStorage.getItem('savedTime'));
 
@@ -67,7 +67,6 @@ function wiltingColors() {
     Math.max(0, Math.min(100, satMultiplier * 100)) // % that goes into css
   );
 
-  document.body.style.filter = `saturate(${saturationPercent}%)`;
   document.documentElement.style.filter = `saturate(${saturationPercent}%)`;
 }
 

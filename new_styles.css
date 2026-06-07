@@ -175,13 +175,15 @@ as-dithered-image{
 }
 
 
+/*next dinner worm-nimation*/
+
 .worm {
   display: flex;
   align-items: center;
   justify-content: center;
   white-space: nowrap;
   font-family: var(--carving);
-  font-size: 64px;
+  font-size: 72px;
   font-weight: 500;
   letter-spacing: -3px;
 }
@@ -216,11 +218,11 @@ as-dithered-image{
   }
 }
 
+
 .square {
   height: 455px;
   aspect-ratio: 1 / 1;
 }
-
 
 .rectangle {
   min-width: 600px;
