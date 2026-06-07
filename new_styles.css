@@ -2,20 +2,24 @@
 @import 'reset.css';
 
 :root {
-  --cccream: #d0c3a1;
-  --gggreen: #73993e;
-  --mmmoss: #088235;
-  --yyyellow: #f2b63e;
-  --sssunny: #ecbd71;
-  --bbbrown: #33251c;
-  --rrripe: #872c31;
-  --not-wwwhite: #e4ecf3;
+  --cccream: rgb(208, 195, 161);
+  --gggreen: rgb(115, 153, 62);
+  --mmmoss: rgb(8, 130, 53);
+  --yyyellow: rgb(242, 182, 62);
+  --sssunny: rgb(236, 189, 113);
+  --bbbrown: rgb(51, 37, 28);
+  --rrripe: rgb(135, 44, 49);
+  --not-wwwhite: rgb(228, 236, 243);
 
   --mech: 'gt-mechanik-semi', 'helvetica', arial, sans-serif;
   --wweg: 'wwwegetative', 'gt-mechanik-semi', sans-serif;
   --carving: 'carvingsoft', 'helvetica', arial, sans-serif;
 
   --header-space: 500px;
+}
+
+html{
+   background: linear-gradient(90deg, var(--cccream) 50%, var(--mmmoss) 0);
 }
 
 html,
@@ -32,7 +36,6 @@ body::-webkit-scrollbar {
 
 body {
   overflow-y: auto;
-  background: linear-gradient(90deg, var(--cccream) 50%, var(--mmmoss) 0);
 }
 
 .garden-bed {
@@ -73,6 +76,13 @@ header {
   position: fixed;
   top: 0;
   height: var(--header-space);
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .worm span {
+    animation: none;
+  }
 }
 
 .wwwegetables {
@@ -119,11 +129,27 @@ header.collapsed p {
 }
 
 .stream-container {
-  background-color: var(--cccream);
+  background-color: var(--yyyellow);
   font-family: var(--carving);
   font-weight: 500;
   font-size: 72px;
   margin-top: var(--header-space);
+}
+
+#cauliflower{
+  background-color: var(--not-wwwhite);
+}
+
+#loukum{
+  background-color: var(--not-wwwhite);
+}
+
+#trio{
+    background-color: var(--yyyellow);
+}
+
+as-dithered-image{
+   object-fit: cover;
 }
 
 .stream {
@@ -132,6 +158,7 @@ header.collapsed p {
   text-align: center;
   overflow-x: scroll;
   scrollbar-width: none;
+  overflow-y: hidden;
 }
 
 .stream::-webkit-scrollbar {
@@ -147,10 +174,53 @@ header.collapsed p {
   pointer-events: none;
 }
 
+
+.worm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  font-family: var(--carving);
+  font-size: 64px;
+  font-weight: 500;
+  letter-spacing: -3px;
+}
+
+.worm span {
+  display: inline-block;
+  animation: worm-squiggle 2.2s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.1s);
+  will-change: transform; /*increases responsiveness, renders ahead*/
+}
+
+.worm .space {
+  width: 0.35em;
+  animation: none;
+}
+
+@keyframes worm-squiggle {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(0.05em, -0.2em);
+  }
+  40% {
+    transform: translate(-0.04em, 0.14em);
+  }
+  60% {
+    transform: translate(0.03em, -0.24em);
+  }
+  80% {
+    transform: translate(-0.02em, 0.12em);
+  }
+}
+
 .square {
   height: 455px;
   aspect-ratio: 1 / 1;
 }
+
 
 .rectangle {
   min-width: 600px;
@@ -292,10 +362,14 @@ footer button {
 }
 
 @media screen and (max-width: 375px) {
+
+  html{
+    background: var(--mmmoss);
+  }
+
   body {
     overflow-x: hidden;
     width: 100%;
-    background: var(--mmmoss);
   }
 
   h1,

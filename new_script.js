@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const header = document.querySelector('header');
   const trigger = document.querySelector('.wwwegetables');
   const stream = document.querySelector('.stream');
-  const activeDinner = document.querySelector('.six');
+  const activeDinner = document.querySelector('.six'); //here goes the active dinner number
 
   if (!header || !trigger) return;
 
@@ -60,14 +60,15 @@ if (!savedTime) {
 
 function wiltingColors() {
   const now = Date.now();
-  const elapsed = now - savedTime;
-  const progress = Math.min(elapsed / dayLength, 1);
-  const satMultiplier = 1 - progress;
+  const elapsed = now - savedTime; //how long since watering
+  const progress = Math.min(elapsed / dayLength, 1); //fraction of wilting cycle
+  const satMultiplier = 1 - progress; //saturation remaining: 0->100% sat 1->0% sat
   const saturationPercent = Math.round(
-    Math.max(0, Math.min(100, satMultiplier * 100))
+    Math.max(0, Math.min(100, satMultiplier * 100)) // % that goes into css
   );
 
   document.body.style.filter = `saturate(${saturationPercent}%)`;
+  document.documentElement.style.filter = `saturate(${saturationPercent}%)`;
 }
 
 function getSaturationPercent() {
@@ -78,37 +79,18 @@ function getSaturationPercent() {
   return Math.round(Math.max(0, Math.min(100, satMultiplier * 100)));
 }
 
-function slugify(text) {
-  return String(text)
-    .toLowerCase()
-    .replace(/[^a-z0-9\s-]/g, '')
-    .trim()
-    .replace(/\s+/g, '-');
-}
 
-function setSlugFromMessage(msg) {
-  const slug = slugify(msg);
-  history.replaceState(null, '', '/' + slug);
-}
-
-function clearSlug() {
-  history.replaceState(
-    null,
-    '',
-    window.location.pathname + window.location.search
-  );
-}
 
 function waterSite() {
   const sat = getSaturationPercent();
   if (sat > 50) {
-    setSlugFromMessage('thanks but i have just been watered');
+    window.alert('thanks but i have just been watered');
     return;
   }
 
   savedTime = Date.now();
   localStorage.setItem('savedTime', savedTime);
-  setSlugFromMessage('thank u for caring for me');
+  window.alert('thank u for caring for me')
   wiltingColors();
 }
 
