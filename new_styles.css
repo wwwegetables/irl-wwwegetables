@@ -1,0 +1,424 @@
+@import 'fonts.css';
+@import 'reset.css';
+
+:root {
+  --cccream: #d0c3a1;
+  --gggreen: #73993e;
+  --mmmoss: #088235;
+  --yyyellow: #f2b63e;
+  --sssunny: #ecbd71;
+  --bbbrown: #33251c;
+  --rrripe: #872c31;
+  --not-wwwhite: #e4ecf3;
+
+  --mech: 'gt-mechanik-semi', 'helvetica', arial, sans-serif;
+  --wweg: 'wwwegetative', 'gt-mechanik-semi', sans-serif;
+  --carving: 'carvingsoft', 'helvetica', arial, sans-serif;
+
+  --header-space: 500px;
+}
+
+html,
+body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  height: 100%;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  overflow-y: auto;
+  background: linear-gradient(90deg, var(--cccream) 50%, var(--mmmoss) 0);
+}
+
+.garden-bed {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3,
+p {
+  font-family: var(--carving);
+  font-weight: 500;
+  font-size: 64px;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  hyphenate-limit-chars: 7 3;
+  word-spacing: -0.1ch;
+  pointer-events: none;
+  line-height: 60px;
+}
+
+header {
+  background-color: var(--gggreen);
+  color: var(--yyyellow);
+  padding-left: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  height: var(--header-space);
+}
+
+.wwwegetables {
+  width: 100%;
+  display: flex;
+}
+
+.introduction {
+  padding: 40px;
+}
+
+header h1 {
+  display: none;
+}
+
+header h2 {
+  padding: 0 0 40px 20px;
+}
+
+header p {
+  padding: 0 0 60px 20px;
+  max-width: 90%;
+}
+
+header.collapsed {
+  max-height: 100px;
+  padding-bottom: 40px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+header.collapsed h1 {
+  display: flex;
+  padding: 10px 0 0 0;
+}
+
+header.collapsed .introduction,
+header.collapsed h2,
+header.collapsed p {
+  visibility: hidden;
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.stream-container {
+  background-color: var(--cccream);
+  font-family: var(--carving);
+  font-weight: 500;
+  font-size: 72px;
+  margin-top: var(--header-space);
+}
+
+.stream {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  overflow-x: scroll;
+  scrollbar-width: none;
+}
+
+.stream::-webkit-scrollbar {
+  display: none;
+}
+
+.dinner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.square {
+  height: 455px;
+  aspect-ratio: 1 / 1;
+}
+
+.rectangle {
+  min-width: 600px;
+  height: 455px;
+}
+
+.one {
+  background-color: var(--bbbrown);
+  color: var(--sssunny);
+}
+
+.two {
+  background-color: var(--sssunny);
+  color: var(--mmmoss);
+}
+
+.three {
+  background-color: var(--mmmoss);
+  color: var(--not-wwwhite);
+}
+
+.four {
+  background-color: var(--not-wwwhite);
+  color: var(--gggreen);
+}
+
+.five {
+  background-color: var(--gggreen);
+  color: var(--yyyellow);
+}
+
+.six {
+  background-color: var(--yyyellow);
+  color: var(--bbbrown);
+}
+
+.seven {
+  background-color: var(--bbbrown);
+  color: var(--cccream);
+}
+
+.pause {
+  background-color: var(--cccream);
+  color: var(--rrripe);
+}
+
+.seed {
+  position: absolute;
+  top: 200px;
+  z-index: 2000;
+}
+
+.activities-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  box-sizing: border-box;
+  flex: 1;
+  height: 120%;
+  gap: 0;
+}
+
+.dinners,
+.garden {
+  padding: 60px;
+  flex: 1;
+  min-height: 0;
+  box-sizing: border-box;
+}
+
+.dinners {
+  background-color: var(--cccream);
+  color: var(--mmmoss);
+  font-size: 64px;
+}
+
+.garden {
+  background-color: var(--mmmoss);
+  color: var(--sssunny);
+}
+
+.dinners h3,
+.garden h3 {
+  padding-bottom: 40px;
+}
+
+.saturation-message {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  z-index: 9999;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: var(--bbbrown);
+  color: var(--not-wwwhite);
+  font-family: var(--mech);
+  font-size: 16px;
+  line-height: 1;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.saturation-message.is-visible {
+  opacity: 1;
+}
+
+footer {
+  position: sticky;
+  bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--mech);
+  font-size: 44.4px;
+}
+
+footer a,
+footer button {
+  color: var(--not-wwwhite);
+  text-decoration: none;
+  letter-spacing: -2px;
+  font-weight: 200;
+}
+
+footer a {
+  padding-left: 20px;
+}
+
+footer button {
+  border: none;
+  background: none;
+  font-family: var(--mech);
+  font-size: 44.4px;
+  padding-right: 20px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 375px) {
+  body {
+    overflow-x: hidden;
+    width: 100%;
+    background: var(--mmmoss);
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    font-family: var(--carving);
+    font-weight: 500;
+    font-size: 42px;
+    hyphens: auto;
+    hyphenate-limit-chars: 2 2;
+    word-spacing: -0.1ch;
+    pointer-events: none;
+    line-height: 40px;
+  }
+
+  .garden-bed {
+    display: flex;
+    flex-direction: column;
+  }
+
+  header {
+    position: relative;
+    height: auto;
+    overflow: visible;
+    width: auto;
+    box-sizing: border-box;
+    padding: 20px 10px 40px 10px;
+  }
+
+  .introduction {
+    padding: 0;
+    width: 100%;
+  }
+
+  header h2 {
+    padding: 0;
+    margin-bottom: 30px;
+  }
+
+  header p {
+    padding: 0;
+    min-width: 100%;
+  }
+
+  header h1 {
+    font-size: 42px;
+    align-self: center;
+    hyphens: none;
+  }
+
+  header.collapsed {
+    padding: 0 10px 20px 10px;
+  }
+
+  .wwwegetables {
+    padding-top: 10px;
+  }
+
+  .stream-container {
+    background-color: var(--cccream);
+    font-family: var(--carving);
+    font-weight: 500;
+    font-size: 42px;
+    margin-top: 0;
+  }
+
+  .stream {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .dinner {
+    padding: 40px;
+    box-sizing: border-box;
+    pointer-events: none;
+    flex: 0 0 auto;
+  }
+
+  .square {
+    height: 275px;
+    aspect-ratio: 1 / 1;
+  }
+
+  .rectangle {
+    height: 275px;
+    min-width: 380px;
+  }
+
+  .activities-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    position: relative;
+    bottom: 0;
+  }
+
+  .dinners,
+  .garden {
+    padding: 40px 10px;
+    position: relative;
+    bottom: 0;
+  }
+
+  footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 0 10px;
+    bottom: 10px;
+    letter-spacing: -0.5px;
+  }
+
+  footer a {
+    font-size: 24px;
+    padding: 0;
+    margin: 0;
+  }
+
+  footer button {
+    font-size: 24px;
+    padding: 0;
+    margin: 0;
+  }
+}
