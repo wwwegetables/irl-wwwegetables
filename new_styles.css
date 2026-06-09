@@ -4,8 +4,8 @@
 :root {
   --cccream: rgb(208, 195, 161);
   --gggreen: rgb(115, 153, 62);
-  --mmmoss: rgb(8, 130, 53);
-  --yyyellow: rgb(242, 182, 62);
+  --mmmoss: #088235;
+  --yyyellow: #f2b63e;
   --sssunny: rgb(236, 189, 113);
   --bbbrown: rgb(51, 37, 28);
   --rrripe: rgb(135, 44, 49);
@@ -98,9 +98,6 @@ header h1 {
   display: none;
 }
 
-header h2 {
-  padding: 0 0 40px 20px;
-}
 
 header p {
   padding: 0 0 60px 20px;
@@ -291,6 +288,11 @@ as-dithered-image{
   flex: 1;
   min-height: 0;
   box-sizing: border-box;
+}
+
+.dinners h2,
+.garden h2 {
+  padding-bottom: 40px;
 }
 
 .dinners {
