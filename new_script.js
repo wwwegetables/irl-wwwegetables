@@ -1,22 +1,52 @@
 document.addEventListener('DOMContentLoaded', () => {
   const header = document.querySelector('header');
-  const trigger = document.querySelector('.wwwegetables');
+  const headerTrigger = document.querySelector('.wwwegetables');
   const stream = document.querySelector('.stream');
-  const activeDinner = document.querySelector('.six'); //here goes the active dinner number
+  const activeDinner = document.querySelector('.six'); // here goes the active dinner number
+  const waterButton = document.querySelector('.water');
 
-  if (!header || !trigger) return;
-
-  let threshold;
   const mobileQuery = window.matchMedia('(max-width: 375px)');
+  const expandedHeaderSpace = '500px';
+  const collapsedHeaderSpace = '100px';
 
-  function setThreshold() {
-    if (mobileQuery.matches) {
-      threshold = 480;
-    } else {
-      threshold = 280;
+  // header: collapses after scrolling, opens again on title click
+  function getScrollThreshold() {
+    return mobileQuery.matches ? 480 : 280;
+  }
+
+  function getScrollTop() {
+    return window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
+  }
+
+  function collapseHeader() {
+    if (!header) return;
+
+    header.classList.add('collapsed');
+    document.documentElement.style.setProperty('--header-space', collapsedHeaderSpace);
+  }
+
+  function expandHeader() {
+    if (!header) return;
+
+    header.classList.remove('collapsed');
+    document.documentElement.style.setProperty('--header-space', expandedHeaderSpace);
+  }
+
+  function updateHeader() {
+    if (getScrollTop() > getScrollThreshold()) {
+      collapseHeader();
     }
   }
 
+  if (header && headerTrigger) {
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    document.addEventListener('scroll', updateHeader, { passive: true });
+    document.body.addEventListener('scroll', updateHeader, { passive: true });
+    headerTrigger.addEventListener('click', expandHeader);
+    updateHeader();
+  }
+
+  // stream: opens centered around the active dinner
   function centerActiveDinner() {
     if (!stream || !activeDinner) return;
 
@@ -26,77 +56,59 @@ document.addEventListener('DOMContentLoaded', () => {
     );
   }
 
-  function updateHeader() {
-    setThreshold();
-    if (window.scrollY > threshold) {
-      header.classList.add('collapsed');
-      document.documentElement.style.setProperty('--header-space', '100px');
-    }
-  }
-
-  window.addEventListener('scroll', updateHeader, { passive: true });
-
-  trigger.addEventListener('click', () => {
-    header.classList.remove('collapsed');
-    document.documentElement.style.setProperty('--header-space', '500px');
-  });
-
-  updateHeader();
   centerActiveDinner();
   window.addEventListener('load', centerActiveDinner);
   window.addEventListener('resize', centerActiveDinner);
-});
 
-// this site needs water
+  // water: refreshes the wilting, gives color
+  const wiltingHours = 0.5;
+  const wiltingDuration = wiltingHours * 60 * 60 * 1000;
+  const wateringUrl = '/.netlify/functions/watering';
+  let savedTime = Date.now();
 
-const wiltingHours = 0.5;
-const dayLength = wiltingHours * 60 * 60 * 1000;
-let savedTime = Number(localStorage.getItem('savedTime'));
+  function getSaturationPercent() {
+    const elapsed = Date.now() - savedTime; // how long since watering
+    const progress = Math.min(elapsed / wiltingDuration, 1); // fraction of wilting cycle
 
-if (!savedTime) {
-  savedTime = Date.now();
-  localStorage.setItem('savedTime', savedTime);
-}
-
-function wiltingColors() {
-  const now = Date.now();
-  const elapsed = now - savedTime; //how long since watering
-  const progress = Math.min(elapsed / dayLength, 1); //fraction of wilting cycle
-  const satMultiplier = 1 - progress; //saturation remaining: 0->100% sat 1->0% sat
-  const saturationPercent = Math.round(
-    Math.max(0, Math.min(100, satMultiplier * 100)) // % that goes into css
-  );
-
-  document.documentElement.style.filter = `saturate(${saturationPercent}%)`;
-}
-
-function getSaturationPercent() {
-  const now = Date.now();
-  const elapsed = now - savedTime;
-  const progress = Math.min(elapsed / dayLength, 1);
-  const satMultiplier = 1 - progress;
-  return Math.round(Math.max(0, Math.min(100, satMultiplier * 100)));
-}
-
-
-
-function waterSite() {
-  const sat = getSaturationPercent();
-  if (sat > 50) {
-    window.alert('thanks but i have just been watered');
-    return;
+    return Math.round(Math.max(0, Math.min(100, (1 - progress) * 100)));
   }
 
-  savedTime = Date.now();
-  localStorage.setItem('savedTime', savedTime);
-  window.alert('thank u for caring for me')
-  wiltingColors();
-}
+  function updateWiltingColors() {
+    document.documentElement.style.filter = `saturate(${getSaturationPercent()}%)`;
+  }
 
-const waterButton = document.querySelector('.water');
-if (waterButton) {
-  waterButton.addEventListener('click', waterSite);
-}
+  async function loadWateringState() {
+    try {
+      const response = await fetch(wateringUrl);
+      const data = await response.json();
 
-wiltingColors();
-setInterval(wiltingColors, 60 * 1000);
+      savedTime = data.lastWateredAt || Date.now();
+      updateWiltingColors();
+    } catch (error) {
+      console.warn('could not load watering state', error);
+      updateWiltingColors();
+    }
+  }
+
+  async function waterSite() {
+    try {
+      const response = await fetch(wateringUrl, { method: 'POST' });
+      const data = await response.json();
+
+      savedTime = data.lastWateredAt || savedTime;
+      window.alert(data.message);
+      updateWiltingColors();
+    } catch (error) {
+      console.warn('could not water site', error);
+      window.alert('the watering can is unreachable right now');
+    }
+  }
+
+  if (waterButton) {
+    waterButton.addEventListener('click', waterSite);
+  }
+
+  loadWateringState();
+  window.setInterval(loadWateringState, 60 * 1000);
+  window.setInterval(updateWiltingColors, 60 * 1000);
+});
