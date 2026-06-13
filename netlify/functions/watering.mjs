@@ -1,8 +1,8 @@
 import { getStore } from '@netlify/blobs';
 
-const wiltingHours = 0.1;
+const wiltingHours = 0.5;
 const wiltingDuration = wiltingHours * 60 * 60 * 1000;
-const store = getStore('wwwegetables');
+const store = getStore({ name: 'wwwegetables', consistency: 'strong' });
 
 async function getLastWateredAt() {
   const saved = await store.get('watering', { type: 'json' });
@@ -16,29 +16,30 @@ async function getLastWateredAt() {
 }
 
 function getSaturationPercent(lastWateredAt) {
-  const elapsed = Date.now() - lastWateredAt;
+  const elapsed = Date.now() - Number(lastWateredAt);
   const progress = Math.min(elapsed / wiltingDuration, 1);
-
-  return Math.round(Math.max(0, Math.min(100, (1 - progress) * 100)));
+  return Math.round((1 - progress) * 100);
 }
 
 export default async function watering(request) {
   const lastWateredAt = await getLastWateredAt();
 
   if (request.method === 'GET') {
-    return Response.json({ lastWateredAt });
+    return Response.json({ lastWateredAt }, {
+      headers: { 'cache-control': 'no-store' }
+    });
   }
 
   if (request.method === 'POST') {
     if (getSaturationPercent(lastWateredAt) > 50) {
-      return Response.json(
-        {
-          lastWateredAt,
-          watered: false,
-          message: 'thanks but i have just been watered'
-        },
-        { status: 429 }
-      );
+      return Response.json({
+        lastWateredAt,
+        watered: false,
+        message: 'thanks but i have just been watered'
+      }, {
+        status: 429,
+        headers: { 'cache-control': 'no-store' }
+      });
     }
 
     const nextWateredAt = Date.now();
@@ -48,6 +49,8 @@ export default async function watering(request) {
       lastWateredAt: nextWateredAt,
       watered: true,
       message: 'thank u for caring for me'
+    }, {
+      headers: { 'cache-control': 'no-store' }
     });
   }
 

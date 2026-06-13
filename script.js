@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileQuery = window.matchMedia('(max-width: 375px)');
   const expandedHeaderSpace = '500px';
   const collapsedHeaderSpace = '100px';
+  
 
   // header: collapses after scrolling, opens again on title click
   function getScrollThreshold() {
@@ -61,48 +62,52 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', centerActiveDinner);
 
   // water: refreshes the wilting, gives color
-  const wiltingHours = 0.5;
-  const wiltingDuration = wiltingHours * 60 * 60 * 1000;
-  const wateringUrl = '/.netlify/functions/watering';
-  let savedTime = Date.now();
+  const site = document.querySelector('.site');
+const wiltingHours = 0.5;
+const wiltingDuration = wiltingHours * 60 * 60 * 1000;
+const wateringUrl = '/.netlify/functions/watering';
+let savedTime = Date.now();
 
-  function getSaturationPercent() {
-    const elapsed = Date.now() - savedTime; // how long since watering
-    const progress = Math.min(elapsed / wiltingDuration, 1); // fraction of wilting cycle
+function getSaturationPercent() {
+  const elapsed = Date.now() - Number(savedTime);
+  const progress = Math.min(elapsed / wiltingDuration, 1);
+  return Math.round((1 - progress) * 100);
+}
 
-    return Math.round(Math.max(0, Math.min(100, (1 - progress) * 100)));
+function updateWiltingColors() {
+  if (!site) return;
+  site.style.filter = `saturate(${getSaturationPercent()}%)`;
+}
+
+async function loadWateringState() {
+  try {
+    const response = await fetch(wateringUrl, { cache: 'no-store' });
+    const data = await response.json();
+    savedTime = Number(data.lastWateredAt) || Date.now();
+  } catch (error) {
+    console.warn('could not load watering state', error);
   }
+  updateWiltingColors();
+}
 
-  function updateWiltingColors() {
-    document.documentElement.style.filter = `saturate(${getSaturationPercent()}%)`;
-  }
+async function waterSite() {
+  try {
+    const response = await fetch(wateringUrl, { method: 'POST' });
+    const data = await response.json();
 
-  async function loadWateringState() {
-    try {
-      const response = await fetch(wateringUrl);
-      const data = await response.json();
-
-      savedTime = data.lastWateredAt || Date.now();
-      updateWiltingColors();
-    } catch (error) {
-      console.warn('could not load watering state', error);
-      updateWiltingColors();
+    if (!response.ok) {
+      window.alert(data.message || 'we are out of water :/');
+      return;
     }
-  }
 
-  async function waterSite() {
-    try {
-      const response = await fetch(wateringUrl, { method: 'POST' });
-      const data = await response.json();
-
-      savedTime = data.lastWateredAt || savedTime;
-      window.alert(data.message);
-      updateWiltingColors();
-    } catch (error) {
-      console.warn('could not water site', error);
-      window.alert('we are out of water :/');
-    }
+    savedTime = Number(data.lastWateredAt) || savedTime;
+    updateWiltingColors();
+    window.alert(data.message);
+  } catch (error) {
+    console.warn('could not water site', error);
+    window.alert('we are out of water :/');
   }
+}
 
   if (waterButton) {
     waterButton.addEventListener('click', waterSite);
