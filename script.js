@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
       updateWiltingColors();
     } catch (error) {
       console.warn('could not water site', error);
-      window.alert('the watering can is unreachable right now');
+      window.alert('we are out of water :/');
     }
   }
 
