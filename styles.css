@@ -153,9 +153,21 @@ header.collapsed p {
 .stream > .dinner{
   scroll-snap-align: center;
   touch-action: pan-x;
-
 }
 
+.arrow-nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  transform: translateY(100px);
+}
+
+.arrow-nav img{
+  padding: 10px;
+  
+}
 .dinner {
   display: flex;
   flex-direction: column;
