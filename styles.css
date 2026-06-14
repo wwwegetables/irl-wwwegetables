@@ -1,9 +1,10 @@
 @import 'fonts.css';
 @import 'reset.css';
 
+/* variables */
 :root {
   --cccream: rgb(208, 195, 161);
-  --gggreen: rgb(115, 153, 62);
+  --gggreen: #73993e;
   --mmmoss: #088235;
   --yyyellow: #f2b63e;
   --sssunny: rgb(236, 189, 113);
@@ -15,18 +16,21 @@
   --wweg: 'wwwegetative', 'gt-mechanik-semi', sans-serif;
   --carving: 'carvingsoft', 'helvetica', arial, sans-serif;
 
-  /* layout */
   --header-space: 500px;
   --dinner-size: 455px;
   --dinner-rectangle-width: 600px;
 
-  /* font-size */
-  --font-l: 60px;
+  --font-l: 58px;
   --font-s: 40px;
-  --line-l: 60px;
+  --line-l: 58px;
+
+  --space-page: 20px;
+  --space-panel: 40px;
+  --space-stack: 40px;
+  --space-footer: 20px;
 }
 
- 
+/* page layout */
 html {
   height: 100%;
   background: linear-gradient(90deg, var(--cccream) 50%, var(--mmmoss) 0);
@@ -59,6 +63,7 @@ main {
   flex-direction: column;
 }
 
+/* typography */
 h1,
 h2,
 h3,
@@ -76,13 +81,13 @@ p {
   hyphenate-limit-chars: 7 3;
 }
 
-/* header: starts as a welcome panel, then collapses into the title */
+/* header */
 header {
   position: fixed;
   top: 0;
   box-sizing: border-box;
   height: var(--header-space);
-  padding-left: 20px;
+  padding-left: var(--space-page);
   overflow: hidden;
   color: var(--yyyellow);
   background-color: var(--gggreen);
@@ -91,10 +96,13 @@ header {
 .wwwegetables {
   display: flex;
   width: 100%;
+  padding-top: var(--space-panel);
+  padding-left: var(--space-page);
+  padding-right: var(--space-page);
 }
 
 .introduction {
-  padding: 40px;
+  padding: var(--space-panel);
 }
 
 header h1 {
@@ -103,7 +111,7 @@ header h1 {
 
 header p {
   max-width: 90%;
-  padding: 0 0 60px 20px;
+  padding: 0;
 }
 
 header.collapsed {
@@ -115,7 +123,7 @@ header.collapsed {
 
 header.collapsed h1 {
   display: flex;
-  padding: 10px 0 0;
+  padding-top: 10px;
 }
 
 header.collapsed .introduction,
@@ -127,7 +135,7 @@ header.collapsed p {
   padding: 0;
 }
 
-/* stream: dinner dates and dithered dinner photos */
+/* stream */
 .stream-container {
   margin-top: var(--header-space);
   font-family: var(--carving);
@@ -150,7 +158,7 @@ header.collapsed p {
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
-  padding: 40px;
+  padding: var(--space-panel);
   pointer-events: none;
 }
 
@@ -217,7 +225,7 @@ as-dithered-image {
   object-fit: cover;
 }
 
-/* next dinner worm: animation to show next dinner */
+/* worm animation */
 .worm {
   display: flex;
   align-items: center;
@@ -233,7 +241,7 @@ as-dithered-image {
   display: inline-block;
   animation: worm-squiggle 2.2s ease-in-out infinite;
   animation-delay: calc(var(--i) * 0.1s);
-  will-change: transform; /* renders the squiggle ahead */
+  will-change: transform;
 }
 
 .worm .space {
@@ -270,7 +278,13 @@ as-dithered-image {
   }
 }
 
-/* activities: dinner and garden explanation */
+.seeds {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* activities */
 .activities-container {
   display: flex;
   flex: 1;
@@ -278,7 +292,6 @@ as-dithered-image {
   justify-content: space-evenly;
   box-sizing: border-box;
   height: 120%;
-  gap: 0;
 }
 
 .dinners,
@@ -286,7 +299,7 @@ as-dithered-image {
   flex: 1;
   box-sizing: border-box;
   min-height: 0;
-  padding: 60px;
+  padding: var(--space-panel);
 }
 
 .dinners h2,
@@ -304,14 +317,16 @@ as-dithered-image {
   background-color: var(--mmmoss);
 }
 
-/* footer: contact info and site controls */
+/* footer */
 footer {
   position: sticky;
-  bottom: 20px;
+  bottom: var(--space-footer);
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   width: 100%;
+  padding-left: var(--space-page);
+  padding-right: var(--space-page);
   font-family: var(--mech);
   font-size: var(--font-s);
 }
@@ -324,12 +339,7 @@ footer button {
   text-decoration: none;
 }
 
-footer a {
-  padding-left: 20px;
-}
-
 footer button {
-  padding-right: 20px;
   border: none;
   font-family: var(--mech);
   font-size: var(--font-s);
@@ -337,11 +347,12 @@ footer button {
   cursor: pointer;
 }
 
-@media screen and (max-width: 375px) {
+/* mobile */
+@media screen and (min-width: 360px) {
   :root {
-    --font-l: 40px;
-    --font-s: 26.6px;
-    --line-l: 40px;
+    --font-l: 34px;
+    --font-s: 22.6px;
+    --line-l: 32px;
     --dinner-size: 275px;
     --dinner-rectangle-width: 380px;
   }
@@ -359,20 +370,24 @@ footer button {
   h2,
   h3,
   p {
+    font-size: var(--font-l);
     hyphenate-limit-chars: 2 2;
   }
 
   header {
     position: relative;
-    box-sizing: border-box;
     width: auto;
     height: auto;
-    padding: 20px 10px 40px;
+    padding: var(--space-page) 10px 40px;
     overflow: visible;
   }
 
+  .greeting {
+    margin-bottom: var(--space-stack);
+  }
+
   .wwwegetables {
-    padding-top: 10px;
+    padding: 10px var(--space-page) 0;
   }
 
   .introduction {
@@ -382,7 +397,6 @@ footer button {
 
   header h1 {
     align-self: center;
-    font-size: var(--font-l);
     hyphens: none;
   }
 
@@ -428,7 +442,6 @@ footer button {
 
   footer {
     bottom: 10px;
-    flex-direction: row;
     gap: 10px;
     padding: 0 10px;
     letter-spacing: -0.5px;
@@ -439,5 +452,130 @@ footer button {
     margin: 0;
     padding: 0;
     font-size: var(--font-s);
+  }
+}
+
+/* small phones */
+@media screen and (min-width: 375px) {
+  :root {
+    --font-l: 36px;
+    --font-s: 24px;
+    --line-l: 36px;
+  }
+}
+
+/* phones */
+@media screen and (min-width: 390px) {
+  :root {
+    --font-l: 42px;
+    --font-s: 28px;
+    --line-l: 40px;
+    --dinner-rectangle-width: 400px;
+  }
+
+  header {
+    padding: var(--space-page) 10px 40px;
+    letter-spacing: -1px;
+  }
+
+  header h1 {
+    font-size: var(--font-l);
+  }
+
+  .dinners,
+  .garden {
+    letter-spacing: -1px;
+  }
+}
+
+/* larger phones */
+@media screen and (min-width: 540px) {
+  :root {
+    --font-l: 38px;
+    --font-s: 28px;
+    --line-l: 36px;
+    --dinner-size: 325px;
+    --dinner-rectangle-width: 440px;
+  }
+
+  header {
+    padding: var(--space-page) var(--space-page) 40px;
+    letter-spacing: -1px;
+  }
+
+  .introduction {
+    max-width: 90%;
+  }
+
+  .activities-container {
+    flex-direction: column;
+  }
+
+  .dinners,
+  .garden {
+    padding: 40px var(--space-page);
+    letter-spacing: -1px;
+  }
+}
+
+/* tablets */
+@media screen and (min-width: 765px) {
+  :root {
+    --font-l: 34px;
+    --font-s: 28px;
+    --line-l: 32px;
+    --dinner-size: 275px;
+    --dinner-rectangle-width: 400px;
+  }
+
+  .activities-container {
+    flex-direction: row;
+  }
+}
+
+/* desktop */
+@media screen and (min-width: 820px) {
+  :root {
+    --font-l: 40px;
+    --line-l: 38px;
+  }
+
+  html {
+  height: 100%;
+  background: linear-gradient(90deg, var(--cccream) 50%, var(--mmmoss) 0);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  }
+
+  .activities-container {
+    flex-direction: row;
+  }
+}
+
+/* desktop */
+@media screen and (min-width: 870px) {
+  :root {
+    --font-l: 40px;
+    --line-l: 38px;
+    --dinner-size: 375px;
+    --dinner-rectangle-width: 475px;
+  }
+
+  .activities-container {
+    flex-direction: row;
+    flex: 1;
+  }
+}
+
+
+
+/* large desktop */
+@media screen and (min-width: 1024px) {
+  :root {
+    --font-l: 46px;
+    --font-s: 30.6px;
+    --line-l: 44px;
+    --dinner-size: 425px;
+    --dinner-rectangle-width: 575px;
   }
 }

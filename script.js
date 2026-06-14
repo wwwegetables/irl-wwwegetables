@@ -62,8 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', centerActiveDinner);
 
   // water: refreshes the wilting, gives color
-  const site = document.querySelector('.site');
-const wiltingHours = 0.5;
+const site = document.querySelector('.site');
+const wiltingHours = 0.1;
 const wiltingDuration = wiltingHours * 60 * 60 * 1000;
 const wateringUrl = '/.netlify/functions/watering';
 let savedTime = Date.now();
@@ -96,7 +96,7 @@ async function waterSite() {
     const data = await response.json();
 
     if (!response.ok) {
-      window.alert(data.message || 'we are out of water :/');
+      window.alert(data.message || 'we are out of water :(');
       return;
     }
 
@@ -105,7 +105,7 @@ async function waterSite() {
     window.alert(data.message);
   } catch (error) {
     console.warn('could not water site', error);
-    window.alert('we are out of water :/');
+    window.alert('we are out of water :(');
   }
 }
 
