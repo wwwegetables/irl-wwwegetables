@@ -3,14 +3,14 @@
 
 /* variables */
 :root {
-  --cccream: rgb(208, 195, 161);
+  --cccream: #d0c3a1;
   --gggreen: #73993e;
   --mmmoss: #088235;
   --yyyellow: #f2b63e;
-  --sssunny: rgb(236, 189, 113);
-  --bbbrown: rgb(51, 37, 28);
-  --rrripe: rgb(135, 44, 49);
-  --not-wwwhite: rgb(228, 236, 243);
+  --sssunny: #ecbd71;
+  --bbbrown: #33251c;
+  --rrripe: #872c31;
+  --not-wwwhite: #e4ecf3;
 
   --mech: 'gt-mechanik-semi', 'helvetica', arial, sans-serif;
   --wweg: 'wwwegetative', 'gt-mechanik-semi', sans-serif;
@@ -46,7 +46,7 @@ body::-webkit-scrollbar,
   display: none;
 }
 
-.garden-bed {
+#garden-bed {
   display: flex;
   flex-direction: column;
   min-height: 100%;
@@ -562,7 +562,7 @@ footer button {
   }
 
   .dinners,
-  .garden{ 
+  .garden{
     padding: 40px 40px;
   }
 
@@ -574,9 +574,9 @@ footer button {
 /* large desktop */
 @media screen and (min-width: 1024px) {
   :root {
-    --font-l: 52px;
-    --font-s: 30.6px;
-    --line-l: 50px;
+    --font-l: 60px;
+    --font-s: 40px;
+    --line-l: 58px;
     --dinner-size: 425px;
     --dinner-rectangle-width: 575px;
   }

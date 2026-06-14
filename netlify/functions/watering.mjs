@@ -35,7 +35,7 @@ export default async function watering(request) {
       return Response.json({
         lastWateredAt,
         watered: false,
-        message: 'thanks but i have just been watered'
+        message: 'thanks but someone else has watered me recently'
       }, {
         status: 429,
         headers: { 'cache-control': 'no-store' }

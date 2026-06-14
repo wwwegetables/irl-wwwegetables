@@ -118,7 +118,7 @@ async function waterSite() {
   window.setInterval(updateWiltingColors, 60 * 1000);
 });
 
-//force horizontal scroll till the end of the stream//
+/*force horizontal scroll till the end of the stream
 const stream = document.querySelector('.stream');
 let locked = false;
 
@@ -156,4 +156,6 @@ stream.addEventListener(
     }
   },
   {passive: false}
-)
+)*/
+
+
