@@ -1,6 +1,6 @@
 import { getStore } from '@netlify/blobs';
 
-const wiltingHours = 0.5;
+const wiltingHours = 0.1;
 const wiltingDuration = wiltingHours * 60 * 60 * 1000;
 const store = getStore({ name: 'wwwegetables', consistency: 'strong' });
 

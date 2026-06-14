@@ -23,11 +23,6 @@
   --font-l: 58px;
   --font-s: 40px;
   --line-l: 58px;
-
-  --space-page: 20px;
-  --space-panel: 40px;
-  --space-stack: 40px;
-  --space-footer: 20px;
 }
 
 /* page layout */
@@ -87,7 +82,7 @@ header {
   top: 0;
   box-sizing: border-box;
   height: var(--header-space);
-  padding-left: var(--space-page);
+  padding-left: 20px;
   overflow: hidden;
   color: var(--yyyellow);
   background-color: var(--gggreen);
@@ -96,13 +91,12 @@ header {
 .wwwegetables {
   display: flex;
   width: 100%;
-  padding-top: var(--space-panel);
-  padding-left: var(--space-page);
-  padding-right: var(--space-page);
+  padding-top: 20px;
+  padding-left: 20px;
 }
 
 .introduction {
-  padding: var(--space-panel);
+  padding: 20px;
 }
 
 header h1 {
@@ -143,7 +137,7 @@ header.collapsed p {
   font-weight: 500;
   background-color: var(--yyyellow);
 }
-
+ 
 .stream {
   display: flex;
   flex-direction: row;
@@ -151,6 +145,15 @@ header.collapsed p {
   overflow-y: hidden;
   text-align: center;
   scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.stream > .dinner{
+  scroll-snap-align: center;
+  touch-action: pan-x;
+
 }
 
 .dinner {
@@ -158,9 +161,10 @@ header.collapsed p {
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
-  padding: var(--space-panel);
+  padding: 40px;
   pointer-events: none;
 }
+
 
 .square {
   height: var(--dinner-size);
@@ -378,16 +382,16 @@ footer button {
     position: relative;
     width: auto;
     height: auto;
-    padding: var(--space-page) 10px 40px;
+    padding: 40px 20px;;
     overflow: visible;
   }
 
   .greeting {
-    margin-bottom: var(--space-stack);
+    margin-bottom: 20px;
   }
 
   .wwwegetables {
-    padding: 10px var(--space-page) 0;
+    padding: 10px 20px;;
   }
 
   .introduction {
@@ -437,7 +441,7 @@ footer button {
   .garden {
     position: relative;
     bottom: 0;
-    padding: 40px 10px;
+    padding: 40px 20px;
   }
 
   footer {
@@ -474,7 +478,7 @@ footer button {
   }
 
   header {
-    padding: var(--space-page) 10px 40px;
+    padding: 40px 20px;
     letter-spacing: -1px;
   }
 
@@ -485,6 +489,7 @@ footer button {
   .dinners,
   .garden {
     letter-spacing: -1px;
+     padding: 40px 20px;
   }
 }
 
@@ -499,7 +504,7 @@ footer button {
   }
 
   header {
-    padding: var(--space-page) var(--space-page) 40px;
+    padding: 0 40px 40px 40px;
     letter-spacing: -1px;
   }
 
@@ -513,7 +518,6 @@ footer button {
 
   .dinners,
   .garden {
-    padding: 40px var(--space-page);
     letter-spacing: -1px;
   }
 }
@@ -530,6 +534,12 @@ footer button {
 
   .activities-container {
     flex-direction: row;
+  }
+
+  .dinners,
+  .garden {
+    padding: 40px 20px;
+    letter-spacing: -1px;
   }
 }
 
@@ -550,31 +560,23 @@ footer button {
   .activities-container {
     flex-direction: row;
   }
-}
 
-/* desktop */
-@media screen and (min-width: 870px) {
-  :root {
-    --font-l: 40px;
-    --line-l: 38px;
-    --dinner-size: 375px;
-    --dinner-rectangle-width: 475px;
+  .dinners,
+  .garden{ 
+    padding: 40px 40px;
   }
 
-  .activities-container {
-    flex-direction: row;
-    flex: 1;
+  footer{
+    padding: 0 40px;
   }
 }
-
-
 
 /* large desktop */
 @media screen and (min-width: 1024px) {
   :root {
-    --font-l: 46px;
+    --font-l: 52px;
     --font-s: 30.6px;
-    --line-l: 44px;
+    --line-l: 50px;
     --dinner-size: 425px;
     --dinner-rectangle-width: 575px;
   }

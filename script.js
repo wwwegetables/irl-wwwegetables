@@ -117,3 +117,43 @@ async function waterSite() {
   window.setInterval(loadWateringState, 60 * 1000);
   window.setInterval(updateWiltingColors, 60 * 1000);
 });
+
+//force horizontal scroll till the end of the stream//
+const stream = document.querySelector('.stream');
+let locked = false;
+
+function atEnd(el) {
+  return el.scrollLeft + el.clientWidth >= el.scrollWidth - 2;
+}
+
+function atStart(el) {
+  return el.scrollLeft <= 2;
+}
+
+stream.addEventListener('mouseenter', () => {
+  locked = true;
+});
+
+stream.addEventListener('mouseleave', () => {
+  locked = false;
+});
+
+stream.addEventListener(
+  'wheel',
+  (e) => {
+    const goingDown = e.deltaY > 0;
+    const goingUp = e.deltaY < 0;
+
+    const canScrollRight = !atEnd(stream);
+    const canScrollLeft = !atStart(stream);
+
+    if ((goingDown && canScrollRight) || (goingUp && canScrollLeft)) {
+      e.preventDefault();
+      stream.scrollLeft += e.deltaY;
+      locked = true;
+    } else {
+      locked = false;
+    }
+  },
+  {passive: false}
+)
