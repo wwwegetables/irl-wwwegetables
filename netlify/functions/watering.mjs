@@ -1,61 +1,84 @@
 import { getStore } from '@netlify/blobs';
 
-const wiltingHours = 0.1;
-const wiltingDuration = wiltingHours * 60 * 60 * 1000;
-const store = getStore({ name: 'wwwegetables', consistency: 'strong' });
+const WILTING_DURATION = 6 * 60 * 1000; // 6 minutes
+
+const store = getStore({
+  name: 'wwwegetables',
+  consistency: 'strong'
+});
 
 async function getLastWateredAt() {
   const saved = await store.get('watering', { type: 'json' });
-  const lastWateredAt = Number(saved?.lastWateredAt) || Date.now();
 
-  if (!saved?.lastWateredAt) {
-    await store.setJSON('watering', { lastWateredAt });
+  if (saved?.lastWateredAt) {
+    return Number(saved.lastWateredAt);
   }
 
-  return lastWateredAt;
+  const now = Date.now();
+
+  await store.setJSON('watering', {
+    lastWateredAt: now
+  });
+
+  return now;
 }
 
 function getSaturationPercent(lastWateredAt) {
-  const elapsed = Date.now() - Number(lastWateredAt);
-  const progress = Math.min(elapsed / wiltingDuration, 1);
-  return Math.round((1 - progress) * 100);
+  const elapsed = Date.now() - lastWateredAt;
+
+  return Math.max(
+    0,
+    Math.round((1 - elapsed / WILTING_DURATION) * 100)
+  );
+}
+
+function json(data, init = {}) {
+  return Response.json(data, {
+    headers: {
+      'cache-control': 'no-store'
+    },
+    ...init
+  });
 }
 
 export default async function watering(request) {
   const lastWateredAt = await getLastWateredAt();
 
   if (request.method === 'GET') {
-    return Response.json({ lastWateredAt }, {
-      headers: { 'cache-control': 'no-store' }
-    });
+    return json({ lastWateredAt });
   }
 
   if (request.method === 'POST') {
-    if (getSaturationPercent(lastWateredAt) > 50) {
-      return Response.json({
-        lastWateredAt,
-        watered: false,
-        message: 'thanks but someone else has watered me recently'
-      }, {
-        status: 429,
-        headers: { 'cache-control': 'no-store' }
-      });
+    const saturation = getSaturationPercent(lastWateredAt);
+
+    if (saturation > 50) {
+      return json(
+        {
+          lastWateredAt,
+          watered: false,
+          message: 'thanks but someone else has watered me recently'
+        },
+        { status: 429 }
+      );
     }
 
     const nextWateredAt = Date.now();
-    await store.setJSON('watering', { lastWateredAt: nextWateredAt });
 
-    return Response.json({
+    await store.setJSON('watering', {
+      lastWateredAt: nextWateredAt
+    });
+
+    return json({
       lastWateredAt: nextWateredAt,
       watered: true,
       message: 'thank u for caring for me'
-    }, {
-      headers: { 'cache-control': 'no-store' }
     });
   }
 
   return new Response('method not allowed', {
     status: 405,
-    headers: { allow: 'GET, POST' }
+    headers: {
+      allow: 'GET, POST'
+    }
   });
 }

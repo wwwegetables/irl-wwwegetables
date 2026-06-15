@@ -41,8 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (header && headerTrigger) {
     window.addEventListener('scroll', updateHeader, { passive: true });
-    document.addEventListener('scroll', updateHeader, { passive: true });
-    document.body.addEventListener('scroll', updateHeader, { passive: true });
     headerTrigger.addEventListener('click', expandHeader);
     updateHeader();
   }
@@ -62,37 +60,54 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', centerActiveDinner);
 
   // water: refreshes the wilting, gives color
-const site = document.querySelector('.site');
-const wiltingHours = 0.1;
-const wiltingDuration = wiltingHours * 60 * 60 * 1000;
-const wateringUrl = '/.netlify/functions/watering';
+const gardenBed = document.getElementById('garden-bed');
+
+const WILTING_DURATION = 6 * 60 * 1000;
+const WATERING_URL = '/.netlify/functions/watering';
+
 let savedTime = Date.now();
 
 function getSaturationPercent() {
-  const elapsed = Date.now() - Number(savedTime);
-  const progress = Math.min(elapsed / wiltingDuration, 1);
-  return Math.round((1 - progress) * 100);
+  const elapsed = Date.now() - savedTime;
+
+  return Math.max(
+    0,
+    Math.round((1 - elapsed / WILTING_DURATION) * 100)
+  );
 }
 
 function updateWiltingColors() {
-  if (!site) return;
-  site.style.filter = `saturate(${getSaturationPercent()}%)`;
+  if (!gardenBed) return;
+
+  gardenBed.style.filter = `saturate(${getSaturationPercent()}%)`;
 }
 
 async function loadWateringState() {
   try {
-    const response = await fetch(wateringUrl, { cache: 'no-store' });
+    const response = await fetch(WATERING_URL, {
+      cache: 'no-store'
+    });
+
     const data = await response.json();
+
     savedTime = Number(data.lastWateredAt) || Date.now();
+
+    updateWiltingColors();
   } catch (error) {
     console.warn('could not load watering state', error);
   }
-  updateWiltingColors();
 }
 
 async function waterSite() {
+  if (!waterButton) return;
+
+  waterButton.disabled = true;
+
   try {
-    const response = await fetch(wateringUrl, { method: 'POST' });
+    const response = await fetch(WATERING_URL, {
+      method: 'POST'
+    });
+
     const data = await response.json();
 
     if (!response.ok) {
@@ -100,62 +115,49 @@ async function waterSite() {
       return;
     }
 
-    savedTime = Number(data.lastWateredAt) || savedTime;
+    savedTime = Number(data.lastWateredAt) || Date.now();
+
     updateWiltingColors();
+
     window.alert(data.message);
   } catch (error) {
     console.warn('could not water site', error);
+
     window.alert('we are out of water :(');
+  } finally {
+    waterButton.disabled = false;
   }
 }
 
-  if (waterButton) {
-    waterButton.addEventListener('click', waterSite);
-  }
-
-  loadWateringState();
-  window.setInterval(loadWateringState, 60 * 1000);
-  window.setInterval(updateWiltingColors, 60 * 1000);
-});
-
-/*force horizontal scroll till the end of the stream
-const stream = document.querySelector('.stream');
-let locked = false;
-
-function atEnd(el) {
-  return el.scrollLeft + el.clientWidth >= el.scrollWidth - 2;
+if (waterButton) {
+  waterButton.addEventListener('click', waterSite);
 }
 
-function atStart(el) {
-  return el.scrollLeft <= 2;
-}
+loadWateringState();
 
-stream.addEventListener('mouseenter', () => {
-  locked = true;
+// smooth visual updates
+window.setInterval(updateWiltingColors, 1000);
+
+// sync with server occasionally
+window.setInterval(loadWateringState, 60 * 1000);
+
+
+let backBtn = document.getElementById("arrow-left");
+let nextBtn = document.getElementById("arrow-right");
+
+const scrollContainer = document.querySelector(".stream");
+
+nextBtn.addEventListener("click", () => {
+  scrollContainer.scrollBy({
+    left: 910,
+    behavior: "smooth"
+  });
 });
 
-stream.addEventListener('mouseleave', () => {
-  locked = false;
+backBtn.addEventListener("click", () => {
+  scrollContainer.scrollBy({
+    left: -910,
+    behavior: "smooth"
+  });
+})
 });
-
-stream.addEventListener(
-  'wheel',
-  (e) => {
-    const goingDown = e.deltaY > 0;
-    const goingUp = e.deltaY < 0;
-
-    const canScrollRight = !atEnd(stream);
-    const canScrollLeft = !atStart(stream);
-
-    if ((goingDown && canScrollRight) || (goingUp && canScrollLeft)) {
-      e.preventDefault();
-      stream.scrollLeft += e.deltaY;
-      locked = true;
-    } else {
-      locked = false;
-    }
-  },
-  {passive: false}
-)*/
-
-

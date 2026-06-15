@@ -30,10 +30,9 @@
       <main>
         <!-- container for dinner dates and photos -->
         <section class="stream-container" aria-label="upcoming dinners">
-          <div class="arrow-nav">
-              <img src="assets/arrow-nav.png" aria-label="navigation arrow">
-              <img src="assets/arrow-nav.png" aria-label="navigation arrow">
-            </div>
+        
+              <button id="arrow-left"><</button>    
+
           <div class="stream">
             <article class="dinner square one" aria-label="dinner on april 15">
               <div class="date">15.04.</div>
@@ -142,6 +141,9 @@
                 <div class="time">break</div>
               </div>
             </article>
+
+              <button id="arrow-right">></button>
+
           </div>
         </section>
 
@@ -180,9 +182,11 @@
         <!--water: refreshes the wilting, gives color-->
         <button class="water" type="button" aria-label="water action">water</button>
       </footer>
-    </div>
+    
 
     <script src="dithering/as-dithered-image.js"></script>
     <script src="script.js"></script>
+    </div>
+    
   </body>
 </html>
