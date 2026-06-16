@@ -60,86 +60,44 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', centerActiveDinner);
 
   // water: refreshes the wilting, gives color
-const gardenBed = document.getElementById('garden-bed');
-
-const WILTING_DURATION = 6 * 60 * 1000;
+const site = document.documentElement; // or document.body
+const WILTING_DURATION = 10 * 60 * 1000;
 const WATERING_URL = '/.netlify/functions/watering';
 
-let savedTime = Date.now();
+let savedTime = null;
+let hydrationDone = false;
 
 function getSaturationPercent() {
+  if (savedTime == null) return 100;
   const elapsed = Date.now() - savedTime;
-
-  return Math.max(
-    0,
-    Math.round((1 - elapsed / WILTING_DURATION) * 100)
-  );
+  return Math.max(0, Math.round((1 - elapsed / WILTING_DURATION) * 100));
 }
 
 function updateWiltingColors() {
-  if (!gardenBed) return;
-
-  gardenBed.style.filter = `saturate(${getSaturationPercent()}%)`;
+  if (!site || savedTime == null) return;
+  site.style.filter = `saturate(${getSaturationPercent()}%)`;
 }
 
 async function loadWateringState() {
   try {
-    const response = await fetch(WATERING_URL, {
-      cache: 'no-store'
-    });
-
+    const response = await fetch(WATERING_URL, { cache: 'no-store' });
     const data = await response.json();
-
     savedTime = Number(data.lastWateredAt) || Date.now();
-
+    hydrationDone = true;
     updateWiltingColors();
   } catch (error) {
     console.warn('could not load watering state', error);
-  }
-}
-
-async function waterSite() {
-  if (!waterButton) return;
-
-  waterButton.disabled = true;
-
-  try {
-    const response = await fetch(WATERING_URL, {
-      method: 'POST'
-    });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      window.alert(data.message || 'we are out of water :(');
-      return;
-    }
-
-    savedTime = Number(data.lastWateredAt) || Date.now();
-
+    savedTime = Date.now();
+    hydrationDone = true;
     updateWiltingColors();
-
-    window.alert(data.message);
-  } catch (error) {
-    console.warn('could not water site', error);
-
-    window.alert('we are out of water :(');
-  } finally {
-    waterButton.disabled = false;
   }
 }
 
-if (waterButton) {
-  waterButton.addEventListener('click', waterSite);
-}
-
-loadWateringState();
-
-// smooth visual updates
-window.setInterval(updateWiltingColors, 1000);
-
-// sync with server occasionally
-window.setInterval(loadWateringState, 60 * 1000);
+window.addEventListener('DOMContentLoaded', () => {
+  loadWateringState();
+  window.setInterval(updateWiltingColors, 1000);
+  window.setInterval(loadWateringState, 60 * 1000);
+});
 
 
 let backBtn = document.getElementById("arrow-left");
