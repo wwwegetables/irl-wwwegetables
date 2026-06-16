@@ -1,6 +1,6 @@
 import { getStore } from '@netlify/blobs';
 
-const WILTING_DURATION = 10 * 60 * 1000; // 
+const WILTING_DURATION = 10 * 60 * 1000;
 
 const store = getStore({
   name: 'wwwegetables',
@@ -23,7 +23,7 @@ async function getLastWateredAt() {
   return now;
 }
 
-function getSaturationPercent(lastWateredAt) {
+function getSaturation(lastWateredAt) {
   const elapsed = Date.now() - lastWateredAt;
 
   return Math.max(
@@ -32,53 +32,49 @@ function getSaturationPercent(lastWateredAt) {
   );
 }
 
-function json(data, init = {}) {
-  return Response.json(data, {
-    headers: {
-      'cache-control': 'no-store'
-    },
-    ...init
-  });
-}
-
 export default async function watering(request) {
   const lastWateredAt = await getLastWateredAt();
 
   if (request.method === 'GET') {
-    return json({ lastWateredAt });
+    return Response.json(
+      { lastWateredAt },
+      {
+        headers: {
+          'cache-control': 'no-store'
+        }
+      }
+    );
   }
 
   if (request.method === 'POST') {
-    const saturation = getSaturationPercent(lastWateredAt);
+    const saturation = getSaturation(lastWateredAt);
 
-    if (saturation > 50) {
-      return json(
+    // only allow watering below 70%
+    if (saturation > 70) {
+      return Response.json(
         {
-          lastWateredAt,
           watered: false,
-          message: 'thanks but someone else has watered me recently'
+          lastWateredAt,
+          message: 'someone else has just watered me :)'
         },
         { status: 429 }
       );
     }
 
-    const nextWateredAt = Date.now();
+    const now = Date.now();
 
     await store.setJSON('watering', {
-      lastWateredAt: nextWateredAt
+      lastWateredAt: now
     });
 
-    return json({
-      lastWateredAt: nextWateredAt,
+    return Response.json({
       watered: true,
-      message: 'thank u for caring for me'
+      lastWateredAt: now,
+      message: 'thank u for taking care of me!'
     });
   }
 
-  return new Response('method not allowed', {
-    status: 405,
-    headers: {
-      allow: 'GET, POST'
-    }
+  return new Response('Method Not Allowed', {
+    status: 405
   });
 }

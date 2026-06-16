@@ -31,6 +31,7 @@ html {
   background: linear-gradient(90deg, var(--cccream) 50%, var(--mmmoss) 0);
   -ms-overflow-style: none;
   scrollbar-width: none;
+  visibility: hidden;
 }
 
 body {
@@ -170,7 +171,7 @@ header.collapsed p {
   font-size: 150px;
   font-family: var(--carving);
   cursor: pointer;
-  position: fixed;
+  position: absolute;
   transform: translateY(45%);
   z-index: 100;;
   mix-blend-mode: exclusion;
