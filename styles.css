@@ -20,9 +20,9 @@
   --dinner-size: 455px;
   --dinner-rectangle-width: 600px;
 
-  --font-l: 58px;
-  --font-s: 40px;
-  --line-l: 58px;
+  --font-l: 56px;
+  --font-s: calc(var(--font-l) / 2);
+  --line-l: calc(var(--font-l) - 4px);;
 }
 
 /* page layout */
@@ -81,6 +81,8 @@ p {
   -ms-hyphens: auto;
   hyphens: auto;
   hyphenate-limit-chars: 7 3;
+  z-index: 1000;
+  position: relative;
 }
 
 /* header */
@@ -328,6 +330,7 @@ as-dithered-image {
 
 .seed {
   position: absolute;
+  z-index: 21;
 }
 
 .seed svg {
@@ -336,6 +339,7 @@ as-dithered-image {
   display: block;
   vector-effect: non-scaling-stroke;
   stroke-width: 1;
+  z-index: 22;
 }
 
 .seed path {
@@ -436,9 +440,7 @@ footer button {
 /* mobile */
 @media screen and (min-width: 360px) {
   :root {
-    --font-l: 34px;
-    --font-s: 22.6px;
-    --line-l: 32px;
+    --font-l: 29px;
     --dinner-size: 275px;
     --dinner-rectangle-width: 380px;
   }
@@ -456,7 +458,6 @@ footer button {
   h2,
   h3,
   p {
-    font-size: var(--font-l);
     hyphenate-limit-chars: 2 2;
   }
 
@@ -545,9 +546,7 @@ footer button {
 /* small phones */
 @media screen and (min-width: 375px) {
   :root {
-    --font-l: 36px;
-    --font-s: 24px;
-    --line-l: 36px;
+    --font-l: 42px;
   }
 }
 
@@ -555,8 +554,6 @@ footer button {
 @media screen and (min-width: 390px) {
   :root {
     --font-l: 42px;
-    --font-s: 28px;
-    --line-l: 40px;
     --dinner-rectangle-width: 400px;
   }
 
@@ -579,9 +576,6 @@ footer button {
 /* larger phones */
 @media screen and (min-width: 540px) {
   :root {
-    --font-l: 38px;
-    --font-s: 28px;
-    --line-l: 36px;
     --dinner-size: 325px;
     --dinner-rectangle-width: 440px;
   }
@@ -608,9 +602,9 @@ footer button {
 /* tablets */
 @media screen and (min-width: 765px) {
   :root {
-    --font-l: 34px;
-    --font-s: 28px;
-    --line-l: 32px;
+    --font-l: 45px;
+    --font-s: 29px;
+    --line-l: 43px;
     --dinner-size: 275px;
     --dinner-rectangle-width: 400px;
   }
@@ -629,8 +623,8 @@ footer button {
 /* desktop */
 @media screen and (min-width: 820px) {
   :root {
-    --font-l: 40px;
-    --line-l: 38px;
+    --font-l: 45px;
+    --line-l: 36px;
   }
 
   html {
@@ -660,11 +654,11 @@ footer button {
 }
 
 /* large desktop */
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1200px) {
   :root {
-    --font-l: 60px;
-    --font-s: 40px;
-    --line-l: 58px;
+    --font-l: 70px;
+    --font-s: 56px;
+    --line-l: 68px;
     --dinner-size: 425px;
     --dinner-rectangle-width: 575px;
   }
