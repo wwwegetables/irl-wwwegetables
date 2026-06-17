@@ -32,6 +32,7 @@ html {
   -ms-overflow-style: none;
   scrollbar-width: none;
   visibility: hidden;
+  
 }
 
 body {
@@ -39,6 +40,7 @@ body {
   overflow-y: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  
 }
 
 html::-webkit-scrollbar,
@@ -52,12 +54,15 @@ body::-webkit-scrollbar,
   flex-direction: column;
   min-height: 100%;
   transition: filter 5s linear;
+  position: relative;
+ 
 }
 
 main {
   display: flex;
   flex: 1;
   flex-direction: column;
+  
 }
 
 /* typography */
@@ -165,25 +170,24 @@ header.collapsed p {
 #arrow-right,
 #arrow-left  {
   position: absolute; 
-  color: var(--cccream);
+  color: var(--bbbrown);
   background: none;
   border: none;
-  font-size: 150px;
-  font-family: var(--carving);
+  font-size: var(--font-s);
+  font-family: var(--mech);
   cursor: pointer;
   position: absolute;
-  transform: translateY(45%);
+  top: 40%;
   z-index: 100;;
-  mix-blend-mode: exclusion;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 #arrow-left {
-  left: 10px;
+  left: 20px;
 }
 
 #arrow-right {
-  right: 10px;
+  right: 20px;
 }
 
 
@@ -260,7 +264,7 @@ as-dithered-image {
   object-fit: cover;
 }
 
-/* worm animation */
+/* worm animation 
 .worm {
   display: flex;
   align-items: center;
@@ -282,7 +286,7 @@ as-dithered-image {
 .worm .space {
   width: 0.35em;
   animation: none;
-}
+}*/
 
 @keyframes worm-squiggle {
   0%,
@@ -313,11 +317,36 @@ as-dithered-image {
   }
 }
 
-.seeds {
+#svg-container svg{
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -70px;
+  height: 100vh;
+  width: 120vw;
+  z-index: 20;
+  transform: translateX(-30%);
+  overflow: hidden;
+  
 }
+
+#svg-container path{
+    stroke-dasharray: 100 50;
+    animation:  crawl 30s linear infinite,
+    growStroke 10s ease-in-out infinite alternate;
+    stroke: var(--gggreen);
+    vector-effect: non-scaling-stroke;
+}
+
+@keyframes growStroke {
+  from { stroke-width: 0; }
+  to { stroke-width: 1.5; }
+}
+
+@keyframes crawl {
+  to {
+    stroke-dashoffset: -150;
+  }
+}
+
 
 /* activities */
 .activities-container {
@@ -326,7 +355,8 @@ as-dithered-image {
   flex-direction: row;
   justify-content: space-evenly;
   box-sizing: border-box;
-  height: 120%;
+  height: 100%;
+  padding-bottom: 40px;
 }
 
 .dinners,
@@ -335,11 +365,19 @@ as-dithered-image {
   box-sizing: border-box;
   min-height: 0;
   padding: var(--space-panel);
+  z-index: 19;
+  position: relative;
 }
 
 .dinners h2,
 .garden h2 {
   padding-bottom: 40px;
+  z-index: 21;
+}
+
+.dinners p,
+.garden p{
+  z-index: 22;
 }
 
 .dinners {
@@ -354,8 +392,9 @@ as-dithered-image {
 
 /* footer */
 footer {
-  position: sticky;
-  bottom: var(--space-footer);
+  position: fixed;
+  z-index: 100;
+  bottom: 0;
   display: flex;
   align-items: baseline;
   justify-content: space-between;
@@ -364,12 +403,13 @@ footer {
   padding-right: var(--space-page);
   font-family: var(--mech);
   font-size: var(--font-s);
+  background-color: var(--sssunny);
 }
 
 footer a,
 footer button {
-  color: var(--not-wwwhite);
-  font-weight: 200;
+  color: var(--bbbrown);
+  font-weight: 300;
   letter-spacing: -2px;
   text-decoration: none;
 }

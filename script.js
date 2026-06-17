@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const header = document.querySelector('header');
   const headerTrigger = document.querySelector('.wwwegetables');
   const stream = document.querySelector('.stream');
-  const activeDinner = document.querySelector('.six');
+  const activeDinner = document.querySelector('.active');
   const waterButton = document.querySelector('.water');
 
   const mobileQuery = window.matchMedia('(max-width: 375px)');
@@ -323,3 +323,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+
+fetch('assets/seeds/seed_2.svg')
+  .then(res => {
+    console.log(res.status);
+    return res.text();
+  })
+  .then(svg => {
+    document.getElementById('svg-container').innerHTML = svg;
+  });
