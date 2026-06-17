@@ -324,11 +324,37 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-fetch('assets/seeds/seed_2.svg')
-  .then(res => {
-    console.log(res.status);
-    return res.text();
-  })
-  .then(svg => {
-    document.getElementById('svg-container').innerHTML = svg;
-  });
+const seedAmount = Math.floor(Math.random() * 2) + 1; // 1-3 seeds
+const container = document.getElementById("svg-container");
+
+for (let i = 0; i < seedAmount; i++) {
+  const seedCount = Math.floor(Math.random() * 9) + 1;
+  const seed = `assets/seeds/seed_${seedCount}.svg`;
+
+  fetch(seed)
+    .then(res => res.text())
+    .then(svg => {
+      const wrapper = document.createElement("div");
+      wrapper.classList.add("seed");
+
+      // Random values
+      const rotation = Math.random() * 360; // degrees
+      const scale = 2 + Math.random() * 1.6; // 0.4 - 2.0
+      const margin = 15; // vw/vh
+      const x = margin + Math.random() * (100 - margin * 2);
+      const y = margin + Math.random() * (100 - margin * 2);
+
+      const size = 200 + Math.random() * 400;
+
+      wrapper.style.left = `${x}vw`;
+      wrapper.style.top = `${y}vh`;
+      wrapper.style.transform = `
+        translate(-50%, -50%)
+        rotate(${rotation}deg)
+        scale(${scale})
+      `;
+
+      wrapper.innerHTML = svg;
+      container.appendChild(wrapper);
+    });
+}
