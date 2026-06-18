@@ -1,75 +1,8 @@
-
 document.addEventListener('DOMContentLoaded', () => {
-  const header = document.querySelector('header');
-  const headerTrigger = document.querySelector('.wwwegetables');
+ 
   const stream = document.querySelector('.stream');
   const activeDinner = document.querySelector('.active');
   const waterButton = document.querySelector('.water');
-
-  const mobileQuery = window.matchMedia('(max-width: 375px)');
-  const expandedHeaderSpace = '500px';
-  const collapsedHeaderSpace = '100px';
-
-
-  // -------------------------
-  // HEADER
-  // -------------------------
-
-  function getScrollThreshold() {
-    return mobileQuery.matches ? 480 : 280;
-  }
-
-  function getScrollTop() {
-    return (
-      window.scrollY ||
-      document.documentElement.scrollTop ||
-      document.body.scrollTop ||
-      0
-    );
-  }
-
-  function collapseHeader() {
-    if (!header) return;
-
-    header.classList.add('collapsed');
-
-    document.documentElement.style.setProperty(
-      '--header-space',
-      collapsedHeaderSpace
-    );
-  }
-
-  function expandHeader() {
-    if (!header) return;
-
-    header.classList.remove('collapsed');
-
-    document.documentElement.style.setProperty(
-      '--header-space',
-      expandedHeaderSpace
-    );
-  }
-
-  function updateHeader() {
-    if (getScrollTop() > getScrollThreshold()) {
-      collapseHeader();
-    }
-  }
-
-  if (header && headerTrigger) {
-    window.addEventListener(
-      'scroll',
-      updateHeader,
-      { passive: true }
-    );
-
-    headerTrigger.addEventListener(
-      'click',
-      expandHeader
-    );
-
-    updateHeader();
-  }
 
 
   // -------------------------
@@ -113,8 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // starts empty so no fake 100% flash
   let lastWateredAt = null;
-
-
   function getSaturationPercent() {
 
     if (!lastWateredAt) return 100;
