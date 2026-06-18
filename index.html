@@ -18,7 +18,7 @@
         </div>
 
         <div class="introduction">
-          <p class="greeting">wwwelcome, dear friend!</p>
+          <p class="heading">wwwelcome, dear friend!</p>
           <p>
             wwwegetables are a student-run project with an interest in plants
             and networks. we organize collective dinners and a shared garden at
@@ -59,7 +59,7 @@
             </article>
 
             <!-- photos get dithered client-side. darkrgba sets the color for the dark part; lightrgba is transparent. background color is set by css. -->
-            <div class="square dinner-photo" id="cauliflower">
+            <div class="rectangle dinner-photo" id="cauliflower">
               <as-dithered-image
                 src="assets/photos/dinner-cauliflower.jpeg"
                 alt="moa cutting up a freshly baked cauliflower."
@@ -76,7 +76,7 @@
               </div>
             </article>
 
-            <div class="square dinner-photo" id="loukum">
+            <div class="rectangle dinner-photo" id="loukum">
               <as-dithered-image
                 src="assets/photos/dinner-bokchoi.jpeg"
                 alt="two people talking in the background, with only the lower half of their faces in the frame. in the foreground, a plate with leftover chocolate-covered loukum brought by feray, the erasmus student from turkey."
@@ -93,7 +93,7 @@
               </div>
             </article>
 
-            <div class="square dinner-photo" id="trio">
+            <div class="rectangle dinner-photo" id="trio">
               <as-dithered-image
                 src="assets/photos/dinner-mushroom.jpeg"
                 alt="leona on the left smiling, moa in the middle raising a glass, and leo on the right with eyes closed. a huge pan with mushroom pasta is steaming in front of them."
@@ -102,10 +102,10 @@
               </as-dithered-image>
             </div>
 
-            <article class="dinner rectangle six" aria-label="next dinner on june 17">
+            <article class="dinner rectangle six" aia-label="next dinner on june 17">
               <div class="date">17.06.</div>
               <div class="theme-time">
-                <div class="wwweggie">your veggie!</div>
+                <div class="wwweggie">postponed :(</div>
                 <div class="time">18:00</div>
               </div>
             </article>
@@ -130,7 +130,7 @@
 
               <div class="next" aria-label="next dinner">next dinner</div>
               <div class="theme-time">
-                <div class="wwweggie">lettuce</div>
+                <div class="wwweggie">your veggie!</div>
                 <div class="time">18:00</div>
               </div>
             </article>
@@ -152,7 +152,7 @@
         <div class="activities-container">
            <div id="svg-container"></div>
           <section class="dinners" aria-labelledby="dinners-heading">
-            <h2 id="dinners-heading">join one of the dinners</h2>
+            <h2 id="dinners-heading" class="heading">join one of the dinners</h2>
             <p>
               which happen on wednesdays at the kochwerkstatt of the
               filmbuilding (finkenau 42). they are open to students, staff,
@@ -161,7 +161,7 @@
           </section>
 
           <section class="garden" aria-labelledby="garden-heading">
-            <h2 id="garden-heading">swing by the garden</h2>
+            <h2 id="garden-heading" class="heading">swing by the garden</h2>
             <p>
               which is a great place (right next to the filmbuilding) to meet
               various new friends. here you can meet a plethora of creatures, plant some wwweggies or flowers, ponder,
@@ -175,7 +175,7 @@
       <footer aria-label="site footer">
         <a href="mailto:snail@wwwegetables.net">email</a>
         <a href="https://t.me/wwweggie">telegram</a>
-        <button class="compost" type="button" aria-label="compost action">compost</button>
+        <button style="display: none;" class="compost" type="button" aria-label="compost action">compost</button>
 
         <!--water: refreshes the wilting, gives color-->
         <button class="water" type="button" aria-label="water action">water</button>
