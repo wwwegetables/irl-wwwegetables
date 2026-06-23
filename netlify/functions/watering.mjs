@@ -32,33 +32,29 @@ function getSaturation(lastWateredAt) {
   );
 }
 
-export default async function watering(request) {
+export const handler = async (event) => {
   const lastWateredAt = await getLastWateredAt();
 
-  if (request.method === 'GET') {
-    return Response.json(
-      { lastWateredAt },
-      {
-        headers: {
-          'cache-control': 'no-store'
-        }
-      }
-    );
+  if (event.httpMethod === 'GET') {
+    return {
+      statusCode: 200,
+      headers: { 'cache-control': 'no-store' },
+      body: JSON.stringify({ lastWateredAt })
+    };
   }
 
-  if (request.method === 'POST') {
+  if (event.httpMethod === 'POST') {
     const saturation = getSaturation(lastWateredAt);
 
-    // only allow watering below 70%
     if (saturation > 70) {
-      return Response.json(
-        {
+      return {
+        statusCode: 429,
+        body: JSON.stringify({
           watered: false,
           lastWateredAt,
           message: 'someone else has just watered me :)'
-        },
-        { status: 429 }
-      );
+        })
+      };
     }
 
     const now = Date.now();
@@ -67,14 +63,18 @@ export default async function watering(request) {
       lastWateredAt: now
     });
 
-    return Response.json({
-      watered: true,
-      lastWateredAt: now,
-      message: 'thank u for taking care of me!'
-    });
+    return {
+      statusCode: 200,
+      body: JSON.stringify({
+        watered: true,
+        lastWateredAt: now,
+        message: 'thank u for taking care of me!'
+      })
+    };
   }
 
-  return new Response('Method Not Allowed', {
-    status: 405
-  });
-}
+  return {
+    statusCode: 405,
+    body: 'Method Not Allowed'
+  };
+};
