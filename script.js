@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // -------------------------
-  // STREAM
+  // stream
   // -------------------------
 
   function centerActiveDinner() {
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // -------------------------
-  // WATERING / WILTING
+  // water/wilting
   // -------------------------
 
   const site = document.documentElement;
@@ -201,10 +201,30 @@ document.addEventListener('DOMContentLoaded', () => {
     10000
   );
 
+  // -------------------------
+  // header arrow
+  // -------------------------
+const headerBtn = document.getElementById('arrow-header');
+const header = document.getElementById('header');
+
+header.classList.toggle(
+  'collapsed',
+  localStorage.getItem('headerCollapsed') === 'true'
+);
+
+headerBtn.addEventListener('click', () => {
+  header.classList.toggle('collapsed');
+
+  localStorage.setItem(
+    'headerCollapsed',
+    header.classList.contains('collapsed')
+  );
+});
+
 
 
   // -------------------------
-  // STREAM ARROWS
+  // dinners arrows
   // -------------------------
 
   const backBtn =
@@ -254,8 +274,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+// -------------------------
+  // seed generation
+  // -------------------------
 
-const seedAmount = Math.floor(Math.random() * 2) + 1; // 1-3 seeds
+
+const seedAmount = Math.floor(Math.random() * 2) + 1; 
 const container = document.getElementById("svg-container");
 
 for (let i = 0; i < seedAmount; i++) {
@@ -268,7 +292,7 @@ for (let i = 0; i < seedAmount; i++) {
       const wrapper = document.createElement("div");
       wrapper.classList.add("seed");
 
-      // Random values
+      // random values
       const rotation = Math.random() * 360; // degrees
       const scale = 2 + Math.random() * 1.6; // 0.4 - 2.0
       const margin = 15; // vw/vh

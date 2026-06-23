@@ -93,18 +93,32 @@ p {
 }
 
 /* header */
+
 header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
   width: 100%;
   box-sizing: border-box;
-  height: var(--header-height);
   padding: 0;
   overflow: hidden;
   color: var(--yyyellow);
   background-color: var(--gggreen);
+  padding-bottom: var(--space-m);
+  position: relative;
+}
+
+#arrow-header {
+  position: absolute; 
+  object-fit: cover;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  width: auto;
+  right: var(--space-s);
+  bottom: var(--space-s);
+}
+
+#arrow-header img{
+  height: 40px;
 }
 
 .heading{
@@ -142,8 +156,11 @@ header.collapsed h1 {
   display: flex;
 }
 
+header.collapsed button {
+  top: 15px;
+}
+
 header.collapsed .introduction,
-header.collapsed h2,
 header.collapsed p {
   visibility: hidden;
   height: 0;
@@ -155,7 +172,6 @@ header.collapsed p {
 
 /* the event stream */
 .stream-container {
-  margin-top: var(--header-height);
   font-family: var(--carving);
   font-size: var(--font-l);
   background-color: var(--yyyellow);
@@ -188,17 +204,15 @@ header.collapsed p {
 #arrow-right,
 #arrow-left  {
   position: absolute; 
-  color: var(--bbbrown);
+  height: 40px;
+  width: auto;
+  object-fit: cover;
   background: none;
   border: none;
-  font-size: var(--font-s);
-  font-family: var(--mech);
   cursor: pointer;
-  position: absolute;
-  top: 40%;
+  top: 45%;
   z-index: 100;
-  font-weight: 400;
-  display: none;
+  display: flex;
 }
 
 #arrow-left {

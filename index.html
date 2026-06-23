@@ -12,7 +12,7 @@
 
     <div id="garden-bed">
       <!-- header: starts expanded, then collapses after scrolling to just show "wwwegetables" -->
-      <header>
+      <header id="header">
         <div class="wwwegetables">
           <h1>wwwegetables</h1>
         </div>
@@ -25,13 +25,14 @@
             hfbk hamburg.
           </p>
         </div>
+        <button id="arrow-header" aria-label="toggle header"><img src="assets/arrow-header.png" alt=""></button>   
       </header>
 
       <main>
         <!-- container for dinner dates and photos -->
         <section class="stream-container" aria-label="upcoming dinners">
         
-              <button id="arrow-left"><</button>    
+              <button id="arrow-left" aria-label="scroll gallery back"><img src="assets/arrow-nav1.png" alt=""></button>    
 
           <div class="stream">
             <article class="dinner square one" aria-label="dinner on april 15">
@@ -143,7 +144,7 @@
               </div>
             </article>
 
-              <button id="arrow-right">></button>
+              <button id="arrow-right" aria-label="scroll gallery further"><img src="assets/arrow-nav2.png" alt=""></button>
 
           </div>
         </section>
