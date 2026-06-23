@@ -275,8 +275,8 @@ headerBtn.addEventListener('click', () => {
 });
 
 // -------------------------
-  // seed generation
-  // -------------------------
+// seed generation
+// -------------------------
 
 
 const seedAmount = Math.floor(Math.random() * 2) + 1; 
@@ -313,3 +313,25 @@ for (let i = 0; i < seedAmount; i++) {
       container.appendChild(wrapper);
     });
 }
+
+// -------------------------
+// compost
+// -------------------------
+
+const compostBtn = document.querySelector('.compost');
+const compost = document.getElementById('compost');
+
+compost.classList.toggle(
+  'visible',
+  localStorage.getItem('compostVisible') === 'true'
+);
+
+compostBtn.addEventListener('click', () => {
+  compost.classList.toggle('visible');
+  window.scrollBy(0, 200);
+
+  localStorage.setItem(
+    'compostVisible',
+    compost.classList.contains('visible')
+  );
+});

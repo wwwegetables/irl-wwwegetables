@@ -477,6 +477,42 @@ footer button {
   padding: 0;
 }
 
+#compost{
+ display: none;
+}
+
+#compost.visible{
+  display: flex;
+  height: 600px;
+  background-color: var(--bbbrown);
+}
+
+#scraps, 
+#special-thanks,
+#dinner-archive,
+#project-log{
+    padding: var(--space-l) var(--space-m);
+}
+
+#scraps{
+  background-color: var(--bbbrown);
+  color: var(--cccream);
+}
+
+#dinner-archive{
+  background-color: var(--ripe);
+}
+
+#special-thanks{
+  background-color: var(--cccream);
+  color: var(--rrripe);
+}
+
+#project-log{
+  background-color: var(--rrripe);
+  color: var(--yyyellow);
+}
+
 
 @media screen and (max-width: 375px){
   :root{
@@ -493,8 +529,11 @@ footer button {
 
   header{
     padding-bottom: var(--space-l);
-
   }
+
+  #arrow-header img{
+  height: 25px;
+}
 
   header p {
     max-width: 100%;
@@ -515,11 +554,16 @@ footer button {
     .activities-container{
       flex-direction: column;
     }
-  
 
-  .seed svg{
-    display: none;
+  #arrow-right,
+#arrow-left {
+  display: none;
+}
+
+
+  #compost.visible{
+    display: flex;
+    flex-direction: column;
   }
-
 
   }
