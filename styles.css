@@ -60,6 +60,7 @@ body::-webkit-scrollbar,
   display: none;
 }
 
+
 #garden-bed {
   display: flex;
   flex-direction: column;
@@ -237,7 +238,10 @@ header.collapsed p {
   display: block;
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
+
+
 
 .square {
   height: var(--dinner-size);
@@ -482,35 +486,85 @@ footer button {
 }
 
 #compost.visible{
-  display: flex;
-  height: 600px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
   background-color: var(--bbbrown);
 }
 
-#scraps, 
+
 #special-thanks,
-#dinner-archive,
 #project-log{
-    padding: var(--space-l) var(--space-m);
+padding: var(--space-l) var(--space-m);
 }
 
 #scraps{
   background-color: var(--bbbrown);
+  padding: var(--space-l) var(--space-m) var(--space-s) var(--space-m);
   color: var(--cccream);
+  grid-column: 1;
+  grid-row: 1;
 }
 
 #dinner-archive{
   background-color: var(--ripe);
+  grid-column: 1;
+  grid-row: 2;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: var(--space-m) 0 0 0;
+  max-height: 20rem;
+  overflow-y: scroll;
 }
+
+.archived-dinner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: var(--carving);
+  font-size: var(--font-l);
+  text-align: center;
+
+  padding: var(--space-s);
+  min-height: 80px;
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+.archived-dinner:nth-child(1) {
+  border: 8px solid var(--yyyellow);
+  color: var(--yyyellow);
+}
+
+.archived-dinner:nth-child(2) {
+  border: 8px solid var(--mmmoss);
+  color: var(--mmmoss);
+}
+
+.archived-dinner:nth-child(3) {
+  border: 8px solid var(--not-wwwhite);
+  color: var(--not-wwwhite);
+}
+
+.archived-dinner:nth-child(4) {
+  color: var(--not-wwwhite);
+  background-color: var(--not-wwwhite);
+}
+
 
 #special-thanks{
   background-color: var(--cccream);
   color: var(--rrripe);
+  grid-column: 1;
+  grid-row: 3;
 }
 
 #project-log{
   background-color: var(--rrripe);
   color: var(--yyyellow);
+  grid-column: 2;
+  grid-row: 1 / span 3;
 }
 
 
@@ -555,7 +609,7 @@ footer button {
       flex-direction: column;
     }
 
-  #arrow-right,
+#arrow-right,
 #arrow-left {
   display: none;
 }
