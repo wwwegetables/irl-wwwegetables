@@ -16,8 +16,6 @@
   --wweg: 'wwwegetative', 'gt-mechanik-semi', sans-serif;
   --carving: 'carvingsoft', 'helvetica', arial, sans-serif;
 
-  --header-height: 400px;
-
   --space-s: 20px;
   --space-m: 40px;
   --space-l: 80px;
@@ -107,8 +105,8 @@ header {
   cursor: pointer;
   position: absolute;
   width: auto;
-  right: var(--space-s);
-  bottom: var(--space-s);
+  right: var(--space-m);
+  bottom: var(--space-m);
 }
 
 #arrow-header img {
@@ -139,7 +137,6 @@ header p {
 
 header.collapsed {
   z-index: 1000;
-  max-height: var(--header-collapsed);
   cursor: pointer;
   padding: var(--space-s) var(--space-m) calc(var(--space-s) + 15px);
 }
@@ -204,11 +201,11 @@ header.collapsed p {
 }
 
 #arrow-left {
-  left: var(--space-s);
+  left: calc(var(--space-m) - 10px);
 }
 
 #arrow-right {
-  right: var(--space-s);
+  right: calc(var(--space-m) - 10px);
 }
 
 .dinner {
@@ -430,7 +427,7 @@ footer {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 0 var(--space-m);
+  padding: var(--space-s) var(--space-m);
   font-family: var(--mech);
   font-size: var(--font-s);
   background-color: var(--sssunny);
@@ -445,6 +442,7 @@ footer button {
   text-decoration: none;
   margin: 0;
   padding: 0;
+  transform: translateY(-2px);
 }
 
 footer button {
@@ -564,11 +562,14 @@ footer button {
   .heading {
     margin-left: 0;
     padding-bottom: var(--space-s);
+  }
+
+  .intro{
     word-spacing: -4.5px;
   }
 
   header.collapsed {
-    padding-bottom: var(--space-s);
+    padding-bottom: var(--space-m);
   }
 
   .activities-container {
@@ -610,8 +611,16 @@ footer button {
     --dinner-rectangle-width: 475px;
   }
 
+  .heading {
+    margin-left: var(--space-m);
+  }
+
   header p {
     max-width: 90%;
+  }
+
+    header.collapsed {
+    padding-bottom: calc(var(--space-m) - 15px);
   }
 
   .activities-container {
