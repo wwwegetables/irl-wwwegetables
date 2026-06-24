@@ -201,11 +201,11 @@ header.collapsed p {
 }
 
 #arrow-left {
-  left: calc(var(--space-m) - 10px);
+  left: var(--space-m);
 }
 
 #arrow-right {
-  right: calc(var(--space-m) - 10px);
+  right: var(--space-m);
 }
 
 .dinner {
@@ -528,6 +528,23 @@ footer button {
   color: var(--rrripe);
   grid-column: 1;
   grid-row: 3;
+}
+
+#special-thanks p{
+  padding-bottom: var(--space-m);
+}
+
+table {
+  font-family: var(--carving);
+  font-size: var(--font-l);
+  font-weight: 500;
+  border-collapse: separate;
+
+}
+
+
+td + td {
+  padding-left: var(--space-m);
 }
 
 #project-log {
