@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>fresh wwwegetables</title>
     <meta name="description" content="wwwegetables is a student-run project focused on plants, networks, shared dinners, and a garden at hfbk hamburg." />
-    <link rel="icon" href="assets/favicons/favicon1.jpg" />
+    <link rel="icon" href="favicon1.jpg" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="queries.css" />
+
   </head>
   <body>
 
     <div id="garden-bed">
-      <!-- header: starts expanded, then collapses after scrolling to just show "wwwegetables" -->
       <header id="header">
         <div class="wwwegetables">
           <h1>wwwegetables</h1>
@@ -111,36 +112,18 @@
               </div>
             </article>
 
-            <article class="dinner square seven active" aria-label="dinner on june 24">
+            <article class="dinner square seven" aria-label="dinner on june 24">
               <div class="date">24.06.</div>
-
-              <!-- next dinner worm: animation to show next dinner 
-              <div class="worm" aria-label="next dinner">
-                <span style="--i: 0">n</span>
-                <span style="--i: 1">e</span>
-                <span style="--i: 2">x</span>
-                <span style="--i: 3">t</span>
-                <span class="space" aria-hidden="true"> </span>
-                <span style="--i: 4">d</span>
-                <span style="--i: 5">i</span>
-                <span style="--i: 6">n</span>
-                <span style="--i: 7">n</span>
-                <span style="--i: 8">e</span>
-                <span style="--i: 9">r</span>
-              </div>-->
-
-              <div class="next" aria-label="next dinner">next dinner</div>
               <div class="theme-time">
                 <div class="wwweggie">your veggie!</div>
                 <div class="time">18:00</div>
               </div>
             </article>
 
-            <article class="dinner square pause" aria-label="summer break from july to october">
+            <article class="dinner pause active" aria-label="summer break from july to october">
               <div class="date">jul–oct</div>
               <div class="theme-time">
-                <div class="wwweggie">summer</div>
-                <div class="time">break</div>
+                <div class="wwweggie">summer break</div>
               </div>
             </article>
 
@@ -172,18 +155,17 @@
         </div>
       </main>
 
-      <!-- footer holds contact info and site controls -->
       <footer aria-label="site footer">
         <a href="mailto:snail@wwwegetables.net">email</a>
         <a href="https://t.me/wwweggie">telegram</a>
-        <button class="compost" type="button" aria-label="compost action">compost</button>
+        <button style="display: none" class="compost" type="button" aria-label="compost action">compost</button>
 
         <!--water: refreshes the wilting, gives color-->
-        <button class="water" type="button" aria-label="water action">water</button>
+        <button style="display: none" class="water" type="button" aria-label="water action">water</button>
       </footer>
 
 
-     <section id="compost">
+     <section style="display: none" id="compost">
       <div id="scraps">
         <p>wwwegetables are growing well because they have been fed the most nutritional scraps. here is the recepie:</p>
       
@@ -253,7 +235,7 @@
 
       </div>
 
-      <!-- have to figuer out the functionality here later
+      <!-- have to figure out the functionality here later
       <div class="scrap-collecting">
         <p>in search of scraps! drop yours here:</p>
         <input type="file" accept="image/*,.pdf" />
@@ -261,6 +243,13 @@
 
       <div id="project-log">
         <h2>project log</h2>
+
+        <div class="log">
+          <div class="log-date">
+           24.06.2026 
+          </div>
+          <div class="log-entree">holding the last collectve dinner this semester.</div>
+        </div>
       </div>
   
      </section>

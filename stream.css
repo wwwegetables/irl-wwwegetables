@@ -1,0 +1,138 @@
+.stream-container {
+  font-family: var(--carving);
+  font-size: var(--font-l);
+  font-weight: 500;
+  background-color: var(--yyyellow);
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  overflow: hidden;
+}
+
+.stream {
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  text-align: center;
+  scrollbar-width: none;
+  scroll-snap-type: none;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  width: max-content;
+}
+
+.stream > .dinner {
+  scroll-snap-align: center;
+  touch-action: pan-x;
+}
+
+#arrow-right,
+#arrow-left {
+  position: absolute;
+  height: 40px;
+  width: auto;
+  background: none;
+  border: none;
+  cursor: pointer;
+  top: 45%;
+  z-index: 100;
+  display: flex;
+}
+
+#arrow-left {
+  left: var(--space-m);
+}
+
+#arrow-right {
+  right: var(--space-m);
+}
+
+.dinner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: var(--space-m);
+  pointer-events: none;
+}
+
+.dinner-photo canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.square {
+  height: var(--dinner-size);
+  aspect-ratio: 1 / 1;
+}
+
+.rectangle {
+  min-width: var(--dinner-rectangle-width);
+  height: var(--dinner-size);
+  object-fit: cover;
+}
+
+/* dinner colour themes */
+.one {
+  color: var(--sssunny);
+  background-color: var(--bbbrown);
+}
+
+.two {
+  color: var(--mmmoss);
+  background-color: var(--sssunny);
+}
+
+.three {
+  color: var(--not-wwwhite);
+  background-color: var(--mmmoss);
+}
+
+.four,
+#cauliflower,
+#loukum {
+  background-color: var(--not-wwwhite);
+}
+
+.four {
+  color: var(--gggreen);
+}
+
+.five {
+  color: var(--yyyellow);
+  background-color: var(--gggreen);
+}
+
+.six,
+#trio {
+  background-color: var(--yyyellow);
+}
+
+.six {
+  color: var(--bbbrown);
+}
+
+.seven {
+  color: var(--cccream);
+  background-color: var(--bbbrown);
+}
+
+.pause {
+  color: var(--rrripe);
+  background-color: var(--cccream);
+  flex: 0 0 100vw;
+  width: 100vw;
+  min-width: 100vw;
+  border-bottom: 4px solid var(--mmmoss)
+}
+
+#svg-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 20;
+}
