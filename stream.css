@@ -120,14 +120,27 @@
   background-color: var(--bbbrown);
 }
 
-.pause {
+.eight {
   color: var(--rrripe);
   background-color: var(--cccream);
-  flex: 0 0 100vw;
-  width: 100vw;
-  min-width: 100vw;
-  border-bottom: 4px solid var(--mmmoss)
+  border-bottom: 4px solid var(--mmmoss);
 }
+
+.nine {
+  color: var(--gggreen);
+  background-color: var(--rrripe);
+}
+
+.ten {
+  color: var(--not-wwwhite);
+  background-color: var(--gggreen);
+}
+
+.eleven {
+  color: var(--yyyellow);
+  background-color: var(--not-wwwhite);
+}
+
 
 #svg-container {
   position: fixed;
