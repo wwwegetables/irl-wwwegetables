@@ -91,6 +91,12 @@ p {
   hyphenate-limit-chars: 7 3;
 }
 
+h2,
+h1 {
+  margin-bottom: -8px;
+}
+
+
 /* header */
 header {
   width: 100%;
