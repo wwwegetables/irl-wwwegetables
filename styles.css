@@ -5,13 +5,13 @@
 
 /* variables */
 :root {
-  --cccream: #d0c3a1;
+  --cccream: rgb(208, 195, 161);
   --gggreen: #73993e;
   --mmmoss: #088235;
   --yyyellow: #f2b63e;
   --sssunny: #ecbd71;
   --bbbrown: #33251c;
-  --rrripe: #872c31;
+  --rrripe: rgb(135, 44, 49);
   --not-wwwhite: #cee1de;
 
   --mech: 'gt-mechanik-semi', 'helvetica', arial, sans-serif;
