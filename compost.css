@@ -38,7 +38,7 @@
   flex-direction: column;
   justify-content: center;
   font-family: var(--carving);
-  font-weight: 500;
+  font-weight: var(--carving-weight);
   font-size: var(--font-l);
   text-align: center;
   padding: var(--space-s);
@@ -83,7 +83,7 @@
 table {
   font-family: var(--carving);
   font-size: var(--font-l);
-  font-weight: 500;
+  font-weight: var(--carving-weight);
   border-collapse: separate;
 
 }
@@ -102,7 +102,7 @@ td + td {
 .log {
   font-family: var(--carving);
   font-size: var(--font-l);
-  font-weight: 500;
+  font-weight: var(--carving-weight);
   padding: var(--space-m) 0;
 }
 

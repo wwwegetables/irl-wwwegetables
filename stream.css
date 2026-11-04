@@ -1,7 +1,7 @@
 .stream-container {
   font-family: var(--carving);
   font-size: var(--font-l);
-  font-weight: 500;
+  font-weight: var(--carving-weight);
   background-color: var(--yyyellow);
   display: flex;
   flex-direction: row;

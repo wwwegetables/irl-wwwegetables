@@ -17,6 +17,7 @@
   --mech: 'gt-mechanik-semi', 'helvetica', arial, sans-serif;
   --wweg: 'wwwegetative', 'gt-mechanik-semi', sans-serif;
   --carving: 'carvingsoft', 'helvetica', arial, sans-serif;
+  --carving-weight: 600;
 
 
   --space-xxs: 2px;
@@ -83,7 +84,7 @@ h3,
 p {
   font-family: var(--carving);
   font-size: var(--font-l);
-  font-weight: 500;
+  font-weight: var(--carving-weight);
   line-height: var(--line-l);
   word-spacing: -0.1ch;
   pointer-events: none;
