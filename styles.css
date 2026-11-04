@@ -18,6 +18,9 @@
   --wweg: 'wwwegetative', 'gt-mechanik-semi', sans-serif;
   --carving: 'carvingsoft', 'helvetica', arial, sans-serif;
 
+
+  --space-xxs: 2px;
+  --space-xs: 5px;
   --space-s: 20px;
   --space-m: 40px;
   --space-l: 80px;
@@ -94,6 +97,23 @@ p {
 h2,
 h1 {
   margin-bottom: -8px;
+}
+
+span.space-xs {
+  display: inline-block;
+  width: var(--space-xs);
+  height: 1em;
+  font-size: 0;
+  vertical-align: baseline;
+}
+
+span.space-xxs {
+  display: inline-block;
+  width: var(--space-xxs);
+  height: 1em;
+  font-size: 0;
+  vertical-align: baseline;
+  margin: -2px;
 }
 
 
@@ -273,4 +293,3 @@ footer button {
   background: none;
   cursor: pointer;
 }
-
